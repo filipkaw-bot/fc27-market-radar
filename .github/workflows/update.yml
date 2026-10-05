@@ -1,6 +1,11 @@
 name: Update FC27 Radar
 on:
   workflow_dispatch:
+    inputs:
+      telegram_test:
+        description: "Send Telegram test message"
+        required: false
+        default: "false"
   schedule:
     - cron: "*/15 * * * *"
 permissions:
@@ -19,7 +24,14 @@ jobs:
         env:
           PARSE_API_KEY: ${{ secrets.PARSE_API_KEY }}
         run: python scripts/engine.py
+      - name: Telegram test
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.telegram_test == 'true' }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/notify.py --test
       - name: Telegram alerts
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.telegram_test == 'true') }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
