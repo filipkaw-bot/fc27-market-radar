@@ -15,7 +15,7 @@ def _price(s):
     return int(n*(1000 if u=="K" else 1000000 if u=="M" else 1))
 
 def _id(href):
-    m=re.search(r"/player/(\d+)",href or "")
+    m=re.search(r"/players/(\d+)",href or "")
     return m.group(1) if m else ""
 
 class _CardParser(HTMLParser):
@@ -25,7 +25,7 @@ class _CardParser(HTMLParser):
     def handle_starttag(self,tag,attrs):
         if tag!="a":return
         a=dict(attrs); h=a.get("href","")
-        if "/player/" in h:
+        if "/players/" in h:
             self.href=h; self.text=[]
     def handle_data(self,data):
         if self.href:self.text.append(data)
