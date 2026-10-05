@@ -1,5 +1,6 @@
 import os,json,urllib.parse
 from urllib.request import Request,urlopen
+from urllib.error import HTTPError
 
 API_KEY=os.getenv("PARSE_API_KEY","").strip()
 BASE_URL=os.getenv("PARSE_FUTBIN_BASE_URL","https://api.parse.bot/scraper/21963078-8a17-40ff-a896-9b0b0ec3e828").rstrip("/")
@@ -17,10 +18,21 @@ class MarketProvider:
         req=Request(url,headers={
             "X-API-Key":API_KEY,
             "Accept":"application/json",
-            "User-Agent":"FC27-Market-Radar/2.0"
+            "User-Agent":"FC27-Market-Radar/2.1"
         })
-        with urlopen(req,timeout=45) as r:
-            return json.loads(r.read().decode())
+        try:
+            with urlopen(req,timeout=45) as r:
+                return json.loads(r.read().decode())
+        except HTTPError as e:
+            if e.code==429:
+                retry=e.headers.get("Retry-After","?")
+                remaining=e.headers.get("X-RateLimit-Remaining","?")
+                reset=e.headers.get("X-RateLimit-Reset","?")
+                quota=e.headers.get("X-Quota-Remaining","?")
+                try: body=e.read().decode()[:500]
+                except Exception: body=""
+                print(f"PARSE 429 endpoint={endpoint} retry_after={retry} remaining={remaining} reset={reset} quota_remaining={quota} body={body}")
+            raise
 
     def players(self,**filters):
         filters={**filters,"platform":self.platform,"fc27_only":True}
