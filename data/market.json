@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-05T16:52:15.693679+00:00",
-  "content_fingerprint": "4fc67b6f202730b5276516542bfb0822c1c53febbdeee085889b98736a5dae63",
+  "updated": "2026-10-05T16:56:57.959414+00:00",
+  "content_fingerprint": "6d1a9f3cbe69fd80099c63ae387f4ae387437f70e4a28c00348acabb932c6dca",
   "provider": {
     "enabled": true,
     "provider": "Parse / FUTBIN data wrapper",
@@ -8,7 +8,7 @@
     "endpoint": "list_fc27_players"
   },
   "content_triggers": 8,
-  "market_filter_groups": 6,
+  "market_request_filters": {},
   "market_rows_scanned": 0,
   "scoring_note": "Supply is a price-distribution proxy from the cheapest qualifying market cards; no live auction-count claim is made.",
   "opportunities": []
