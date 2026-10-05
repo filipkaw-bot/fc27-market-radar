@@ -1,14 +1,21 @@
 {
-  "updated": "2026-10-05T16:56:57.959414+00:00",
-  "content_fingerprint": "6d1a9f3cbe69fd80099c63ae387f4ae387437f70e4a28c00348acabb932c6dca",
+  "updated": "2026-10-05T17:00:27.657998+00:00",
+  "content_fingerprint": "a35afe36da52ef2317750cb7854ccee8eae3aab7f51c3861218507d564fcfa3b",
   "provider": {
     "enabled": true,
-    "provider": "Parse / FUTBIN data wrapper",
+    "provider": "FUTBIN FC27 web player table",
     "platform": "ps",
-    "endpoint": "list_fc27_players"
+    "endpoint": "https://www.futbin.com/27/players"
   },
-  "content_triggers": 8,
-  "market_request_filters": {},
+  "content_triggers": 7,
+  "market_request_filters": {
+    "sort_by_price": "asc",
+    "min_price": 200,
+    "min_rating": 40,
+    "max_rating": 80,
+    "position": "CDM,CM,LM,LW,RB,RM,RW",
+    "position_type": "any"
+  },
   "market_rows_scanned": 0,
   "scoring_note": "Supply is a price-distribution proxy from the cheapest qualifying market cards; no live auction-count claim is made.",
   "opportunities": []
