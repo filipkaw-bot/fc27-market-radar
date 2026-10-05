@@ -93,6 +93,7 @@ class MarketProvider:
             if not p.cards:
                 print(f"FUTFLIPPER page {page}: no cards; bytes={len(html)} sample={html[:1000]!r}")
                 break
+            if page==1: print("FUTFLIPPER raw cards:", repr(p.cards[:3]))
             kept=0
             for href,text in p.cards:
                 card=_parse_card(href,text)
