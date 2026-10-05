@@ -1,13 +1,14 @@
 {
-  "updated": "2026-10-05T16:32:52.210623+00:00",
-  "content_fingerprint": "3a05616e228a52dd4507d8f347b397b06030a4b54f3acbf91c6c919b6db9af8a",
+  "updated": "2026-10-05T16:43:50.158273+00:00",
+  "content_fingerprint": "3a072214e672cc7283b4c4a93aecd2c33d821a999cf0669c1eb14e11ff7b2909",
   "provider": {
     "enabled": true,
     "provider": "Parse / FUT.GG data wrapper",
     "platform": "ps"
   },
   "content_triggers": 8,
-  "scan_pages_per_evo": 2,
+  "market_pages": 4,
+  "market_rows_scanned": 0,
   "scoring_note": "Supply is a price-distribution proxy; no live auction-count claim is made.",
   "opportunities": []
 }
