@@ -26,8 +26,6 @@ jobs:
       - name: Update content radar
         run: python scripts/update.py
       - name: Update market radar
-        env:
-          PARSE_API_KEY: ${{ secrets.PARSE_API_KEY }}
         run: python scripts/engine.py
       - name: Telegram test
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.telegram_test == 'true' }}
