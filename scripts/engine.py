@@ -69,15 +69,28 @@ def qualifies(p,req):
 
 def score_pool(pool,evo):
     if not pool:return []
-    prices=sorted(x["price"] for x in pool); median=prices[len(prices)//2]; out=[]
+    prices=sorted(x["price"] for x in pool)
+    median=prices[len(prices)//2]
+    out=[]
     for x0 in pool:
-        x=dict(x0); rank=sum(p<=x["price"] for p in prices)
-        discount=(median-x["price"])/median if median else 0
+        x=dict(x0)
+        strict_rank=1+sum(p<x["price"] for p in prices)
+        tie_count=sum(p==x["price"] for p in prices)
         near=sum(p<=x["price"]*1.15 for p in prices)
-        score=50+min(20,max(0,round(discount*40)))
-        score+=12 if rank<=3 else 6 if rank<=7 else 0
-        score+=10 if near<=2 else 5 if near<=5 else 0
-        score+=5 if len(prices)<=8 else 0
+        discount=(median-x["price"])/median if median else 0
+        score=35
+        if tie_count<=1: score+=12
+        elif tie_count<=3: score+=8
+        elif tie_count<=7: score+=4
+        if strict_rank<=3: score+=12
+        elif strict_rank<=7: score+=6
+        if near<=1: score+=20
+        elif near<=3: score+=15
+        elif near<=5: score+=10
+        elif near<=10: score+=5
+        if tie_count<=3: score+=min(10,max(0,round(discount*15)))
+        elif tie_count<=10: score+=min(5,max(0,round(discount*8)))
+        if len(prices)<=8:score+=5
         if x.get("trend") is not None and x["trend"]>10:score+=5
         score=min(100,score)
         x.update({
@@ -86,14 +99,16 @@ def score_pool(pool,evo):
             "net_sale":math.floor(x["price"]*(1-TAX)),
             "potential_vs_median":round(discount*100,1),
             "qualifying_cards_found":len(prices),
-            "price_rank":rank,
-            "price_percentile":round(rank/len(prices)*100,1),
+            "price_rank":strict_rank,
+            "price_tie_count":tie_count,
+            "price_percentile":round(strict_rank/len(prices)*100,1),
             "supply_proxy":near,
             "tags":["EVO","ELIGIBLE"],
-            "why":f"{evo}: {len(prices)} kwalifikujących kart znalezionych w skanie rynku. Karta #{rank} cenowo, {round(discount*100,1)}% poniżej mediany; {near} kart w +15% ceny."
+            "why":f"{evo}: {len(prices)} kwalifikujących kart znalezionych. Cena {x['price']} coins: {tie_count} kart po tej samej cenie, {near} kart w +15%; pozycja cenowa #{strict_rank}. {round(discount*100,1)}% poniżej mediany."
         })
-        if rank<=3:x["tags"].append("LOW PRICE")
-        if near<=2:x["tags"].append("BOTTLENECK PROXY")
+        if strict_rank<=3:x["tags"].append("LOW PRICE")
+        if tie_count<=3:x["tags"].append("LOW SAME-PRICE SUPPLY")
+        if near<=3:x["tags"].append("BOTTLENECK PROXY")
         if len(prices)<=8:x["tags"].append("LOW QUALIFIER COUNT")
         if x.get("trend") is not None and x["trend"]>10:x["tags"].append("UPTREND")
         out.append(x)
