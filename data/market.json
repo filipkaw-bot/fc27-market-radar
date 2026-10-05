@@ -1,11 +1,12 @@
 {
-  "updated": "2026-10-05T21:39:56.335708+00:00",
-  "content_fingerprint": "4a25a4f916a6ad013ab965549045a08cf02789e2bbcd0f0b3a095051a592f6aa",
+  "updated": "2026-10-05T21:42:25.833045+00:00",
+  "content_fingerprint": "555369bc824340b0f0acfed572dfcdcc3d3dac3817deb7de61a1a2fb73fb885b",
   "provider": {
     "enabled": true,
     "provider": "FUTBIN FC27 web player table",
     "platform": "ps",
-    "endpoint": "https://www.futbin.com/27/players"
+    "endpoint": "https://www.futbin.com/27/players",
+    "reader_proxy": true
   },
   "content_triggers": 6,
   "market_request_filters": {
