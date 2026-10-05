@@ -105,7 +105,9 @@ class MarketProvider:
             p=_RowParser(); p.feed(text)
             rows=p.rows or _markdown_rows(text)
             if not rows:
-                print(f"FUTBIN page {page}: no player rows"); break
+                print(f"FUTBIN page {page}: no player rows; source={self.last_source}; bytes={len(text)}")
+                print("FUTBIN sample:", repr(text[:1200]))
+                break
             page_ratings=[]
             for cells in rows:
                 texts=[c[0] for c in cells]
