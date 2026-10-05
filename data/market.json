@@ -1,12 +1,11 @@
 {
-  "updated": "2026-10-05T21:42:54.886940+00:00",
-  "content_fingerprint": "35d3f0d94c99a259ad7f7df87bc43dd0556e93aaf15f42bc760dde9dac7a1b0e",
+  "updated": "2026-10-05T21:43:40.702800+00:00",
+  "content_fingerprint": "47b292702393492af556713c538b55f5f54f4df31d234476e5d19bd11c88a762",
   "provider": {
     "enabled": true,
-    "provider": "FUTBIN FC27 web player table",
-    "platform": "ps",
-    "endpoint": "https://www.futbin.com/27/players",
-    "reader_proxy": true
+    "provider": "FUT Flipper FC27 live console prices",
+    "platform": "ps/xbox",
+    "endpoint": "https://futflipper.com/prices"
   },
   "content_triggers": 6,
   "market_request_filters": {
