@@ -1,4 +1,4 @@
-import json,os,math
+import json,os,math,hashlib
 from datetime import datetime,timezone
 from market_provider import MarketProvider
 TAX=0.05
@@ -15,20 +15,35 @@ def run():
     if not provider.enabled: raise RuntimeError("PARSE_API_KEY missing")
     with open("data/opportunities.json",encoding="utf-8") as f: content=json.load(f)
     evos=[x for x in content if x.get("kind")=="Evolutions" and x.get("requirements")]
+    fingerprint=hashlib.sha256(json.dumps(evos,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+    old={}
+    try:
+        with open("data/market.json",encoding="utf-8") as f: old=json.load(f)
+    except: pass
+    old_fp=old.get("content_fingerprint")
+    old_rows=old.get("opportunities",[])
+    if old_fp==fingerprint and old_rows:
+        print("content unchanged; keeping existing market scan")
+        return
     rows=[]
-    for evo in evos[:4]:
-        req=evo["requirements"]; max_rating=req.get("overall_max"); positions=req.get("positions") or []
-        if not max_rating or not positions: continue
-        for pos in positions[:3]:
-            try: data=provider.players(position=pos,max_rating=max_rating,sort_by="price",sort_order="asc",page=1)
-            except Exception as e:
-                print("query failed",e); continue
-            for idx,p in enumerate(flatten(data)[:20]):
-                price=first(p,"price")
-                if not isinstance(price,(int,float)) or price<=0: continue
-                rating=first(p,"rating")
-                if rating and int(rating)>int(max_rating): continue
-                rows.append({"card_id":str(first(p,"card_id","id")),"name":first(p,"name",default="Unknown"),"rating":rating,"position":first(p,"position"),"league":first(p,"league"),"club":first(p,"club"),"card_type":first(p,"card_type"),"price":int(price),"evolution":evo["name"],"position_query":pos,"rank_in_query":idx+1})
+    # Event-driven scan: one market query per newly changed EVO. This keeps the free Parse tier usable.
+    for evo in evos[:6]:
+        req=evo["requirements"]; max_rating=req.get("overall_max")
+        if not max_rating: continue
+        try: data=provider.players(max_rating=max_rating,sort_by="price",sort_order="asc",page=1)
+        except Exception as e:
+            print("query failed",e); continue
+        positions=set(req.get("positions") or [])
+        excluded=set(req.get("excluded_positions") or [])
+        for idx,p in enumerate(flatten(data)[:30]):
+            price=first(p,"price")
+            if not isinstance(price,(int,float)) or price<=0: continue
+            pos=first(p,"position")
+            if positions and pos not in positions: continue
+            if pos in excluded: continue
+            rating=first(p,"rating")
+            if rating and int(rating)>int(max_rating): continue
+            rows.append({"card_id":str(first(p,"card_id","id")),"name":first(p,"name",default="Unknown"),"rating":rating,"position":pos,"league":first(p,"league"),"club":first(p,"club"),"card_type":first(p,"card_type"),"price":int(price),"evolution":evo["name"],"rank_in_query":idx+1})
     uniq={x["card_id"]:x for x in rows}; rows=list(uniq.values())
     prices=sorted(x["price"] for x in rows); median=prices[len(prices)//2] if prices else None
     for x in rows:
@@ -41,9 +56,9 @@ def run():
         x["net_sale"]=math.floor(x["price"]*(1-TAX))
         x["potential_vs_median"]=None if not median else round((median-x["price"])/median*100,1)
         x["tags"]=["EVO","ELIGIBLE"]+([ "LOW PRICE" ] if rank<=3 else [])
-        x["why"]=f"Spełnia wymagania {x['evolution']}; cena {x['price']:,}. Pozycja {rank} wśród znalezionych kwalifikujących kart."
+        x["why"]=f"Spełnia wymagania {x['evolution']}; cena {x['price']:,}. Pozycja {rank} cenowa w znalezionej puli."
     os.makedirs("data",exist_ok=True)
     with open("data/market.json","w",encoding="utf-8") as f:
-        json.dump({"updated":datetime.now(timezone.utc).isoformat(),"provider":provider.health(),"content_triggers":len(evos),"opportunities":sorted(rows,key=lambda x:x["score"],reverse=True)[:100]},f,ensure_ascii=False,indent=2)
-    print("targeted opportunities:",len(rows))
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(),"content_fingerprint":fingerprint,"provider":provider.health(),"content_triggers":len(evos),"opportunities":sorted(rows,key=lambda x:x["score"],reverse=True)[:100]},f,ensure_ascii=False,indent=2)
+    print("targeted opportunities:",len(rows),"for changed content")
 if __name__=="__main__": run()
