@@ -1,1 +1,371 @@
-[]
+[
+  {
+    "name": "Requirements",
+    "kind": "Evolutions",
+    "score": 78,
+    "action": "watch",
+    "tags": [
+      "Evolutions",
+      "NEW",
+      "EXPIRING",
+      "REQUIREMENTS"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Pos.",
+    "kind": "Evolutions",
+    "score": 78,
+    "action": "watch",
+    "tags": [
+      "Evolutions",
+      "NEW",
+      "EXPIRING",
+      "REQUIREMENTS"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Max.",
+    "kind": "Evolutions",
+    "score": 78,
+    "action": "watch",
+    "tags": [
+      "Evolutions",
+      "NEW",
+      "EXPIRING",
+      "REQUIREMENTS"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "All",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Expired",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Players",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Upgrades",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Challenges",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Tarciane",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Challenge",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Akliouche",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Upgrade",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "TOTW",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "September",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Frattesi",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Repeatable",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Every",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Pack",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "SBCs",
+    "kind": "SBC",
+    "score": 73,
+    "action": "watch",
+    "tags": [
+      "SBC",
+      "NEW",
+      "EXPIRING",
+      "SBC"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Season",
+    "kind": "Objectives",
+    "score": 68,
+    "action": "watch",
+    "tags": [
+      "Objectives",
+      "NEW",
+      "EXPIRING"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Squad",
+    "kind": "Objectives",
+    "score": 68,
+    "action": "watch",
+    "tags": [
+      "Objectives",
+      "NEW",
+      "EXPIRING"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Leaderboards",
+    "kind": "Objectives",
+    "score": 68,
+    "action": "watch",
+    "tags": [
+      "Objectives",
+      "NEW",
+      "EXPIRING"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Chemistry",
+    "kind": "Objectives",
+    "score": 68,
+    "action": "watch",
+    "tags": [
+      "Objectives",
+      "NEW",
+      "EXPIRING"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Leagues",
+    "kind": "Objectives",
+    "score": 68,
+    "action": "watch",
+    "tags": [
+      "Objectives",
+      "NEW",
+      "EXPIRING"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  },
+  {
+    "name": "Destined",
+    "kind": "Objectives",
+    "score": 68,
+    "action": "watch",
+    "tags": [
+      "Objectives",
+      "NEW",
+      "EXPIRING"
+    ],
+    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:03:22.335536+00:00"
+  }
+]
