@@ -59,7 +59,7 @@ def _parse_card(href,text):
 class MarketProvider:
     def __init__(self,platform="ps"):
         self.platform=platform; self.enabled=True
-    def _get_page(self,page):
+    def _get_page(self,page,card_type):
         url=f"{BASE_URL}/prices?type={card_type}&page={page}&sort=price_asc"
         req=Request(url,headers={
             "User-Agent":random.choice([
@@ -77,7 +77,7 @@ class MarketProvider:
         out=[]; seen=set()
         for card_type in CARD_TYPES:
             for page in range(1,MAX_PAGES+1):
-                try:html=self._get_page(page)
+                try:html=self._get_page(page,card_type)
                 except (HTTPError,URLError,TimeoutError) as e:
                     print(f"FUTFLIPPER {card_type} page {page} failed: {e}"); break
                 p=_CardParser(); p.feed(html)
