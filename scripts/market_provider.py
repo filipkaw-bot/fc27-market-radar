@@ -91,7 +91,8 @@ class MarketProvider:
                 print(f"FUTFLIPPER page {page} failed: {e}"); break
             p=_CardParser(); p.feed(html)
             if not p.cards:
-                print(f"FUTFLIPPER page {page}: no cards"); break
+                print(f"FUTFLIPPER page {page}: no cards; bytes={len(html)} sample={html[:1000]!r}")
+                break
             kept=0
             for href,text in p.cards:
                 card=_parse_card(href,text)
