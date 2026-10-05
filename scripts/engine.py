@@ -1,10 +1,8 @@
-import json, os, math, hashlib, time
+import json, os, math, hashlib
 from datetime import datetime, timezone
 from market_provider import MarketProvider
 
 TAX=0.05
-MAX_FILTER_GROUPS=6
-PAGE_DELAY=13
 
 def first(o,*keys,default=None):
     for k in keys:
@@ -23,15 +21,15 @@ def flatten(data):
     if isinstance(p,dict):p=first(p,"players","results","items","data",default=[])
     return p if isinstance(p,list) else []
 
-def market_pool(provider, requirements):
-    positions=sorted(set(requirements.get("positions") or []))
-    max_ovr=requirements.get("overall_max")
-    min_ovr=requirements.get("overall_min")
+def market_snapshot(provider,evos):
+    positions=sorted({pos for evo in evos for pos in (evo.get("requirements",{}).get("positions") or [])})
+    mins=[evo.get("requirements",{}).get("overall_min") for evo in evos if evo.get("requirements",{}).get("overall_min") is not None]
+    maxs=[evo.get("requirements",{}).get("overall_max") for evo in evos if evo.get("requirements",{}).get("overall_max") is not None]
     params={
         "sort_by_price":"asc",
         "min_price":200,
-        "min_rating":int(min_ovr) if min_ovr is not None else 40,
-        "max_rating":int(max_ovr) if max_ovr is not None else 99,
+        "min_rating":int(min(mins)) if mins else 40,
+        "max_rating":int(max(maxs)) if maxs else 99,
     }
     if positions:
         params["position"]=",".join(positions)
@@ -56,7 +54,7 @@ def market_pool(provider, requirements):
             "price":int(price),
             "trend":number(first(p,"trend_ps","trend"))
         })
-    return out
+    return out,params
 
 def qualifies(p,req):
     r=p.get("rating")
@@ -70,14 +68,10 @@ def qualifies(p,req):
     return True
 
 def score_pool(pool,evo):
-    pool=[p for p in pool if p.get("price",0)>0]
     if not pool:return []
-    prices=sorted(x["price"] for x in pool)
-    median=prices[len(prices)//2]
-    out=[]
+    prices=sorted(x["price"] for x in pool); median=prices[len(prices)//2]; out=[]
     for x0 in pool:
-        x=dict(x0)
-        rank=sum(p<=x["price"] for p in prices)
+        x=dict(x0); rank=sum(p<=x["price"] for p in prices)
         discount=(median-x["price"])/median if median else 0
         near=sum(p<=x["price"]*1.15 for p in prices)
         score=50+min(20,max(0,round(discount*40)))
@@ -87,8 +81,7 @@ def score_pool(pool,evo):
         if x.get("trend") is not None and x["trend"]>10:score+=5
         score=min(100,score)
         x.update({
-            "evolution":evo,
-            "score":score,
+            "evolution":evo,"score":score,
             "action":"buy" if score>=85 else "watch" if score>=60 else "skip",
             "net_sale":math.floor(x["price"]*(1-TAX)),
             "potential_vs_median":round(discount*100,1),
@@ -97,7 +90,7 @@ def score_pool(pool,evo):
             "price_percentile":round(rank/len(prices)*100,1),
             "supply_proxy":near,
             "tags":["EVO","ELIGIBLE"],
-            "why":f"{evo}: {len(prices)} najtańszych kwalifikujących kart w aktualnym skanie. Karta #{rank} cenowo, {round(discount*100,1)}% poniżej mediany; {near} kart w +15% ceny."
+            "why":f"{evo}: {len(prices)} kwalifikujących kart znalezionych w skanie rynku. Karta #{rank} cenowo, {round(discount*100,1)}% poniżej mediany; {near} kart w +15% ceny."
         })
         if rank<=3:x["tags"].append("LOW PRICE")
         if near<=2:x["tags"].append("BOTTLENECK PROXY")
@@ -116,57 +109,32 @@ def run():
         with open("data/market.json",encoding="utf-8") as f:old=json.load(f)
     except Exception:old={}
     if old.get("content_fingerprint")==fingerprint and old.get("opportunities"):
-        print("content unchanged; keeping existing market scan")
-        return
-
-    groups={}
-    for evo in evos[:12]:
-        req=evo["requirements"]
-        key=json.dumps({
-            "min":req.get("overall_min"),
-            "max":req.get("overall_max"),
-            "positions":sorted(set(req.get("positions") or []))
-        },sort_keys=True)
-        groups.setdefault(key,req)
-
-    groups=list(groups.items())[:MAX_FILTER_GROUPS]
-    pools={}
-    for i,(key,req) in enumerate(groups):
-        try:
-            pools[key]=market_pool(provider,req)
-            print("market group",i+1,"rows:",len(pools[key]))
-        except Exception as e:
-            print("market group",i+1,"failed:",e)
-            pools[key]=[]
-        if i<len(groups)-1:time.sleep(PAGE_DELAY)
-
-    rows=[]
-    for evo in evos[:12]:
-        req=evo["requirements"]
-        key=json.dumps({
-            "min":req.get("overall_min"),
-            "max":req.get("overall_max"),
-            "positions":sorted(set(req.get("positions") or []))
-        },sort_keys=True)
-        pool=[dict(p) for p in pools.get(key,[]) if qualifies(p,req)]
-        rows.extend(score_pool(pool,evo["name"]))
-
+        print("content unchanged; keeping existing market scan");return
+    try:
+        snapshot,params=market_snapshot(provider,evos[:12])
+        print("market request filters:",params)
+        print("market rows:",len(snapshot))
+        rows=[]
+        for evo in evos[:12]:
+            req=evo["requirements"]
+            rows.extend(score_pool([dict(p) for p in snapshot if qualifies(p,req)],evo["name"]))
+    except Exception as e:
+        print("market scan failed:",e)
+        snapshot=[]; rows=[]; params={}
     dedup={(x["card_id"],x["evolution"]):x for x in rows}
-    rows=list(dedup.values())
-    rows.sort(key=lambda x:(x.get("score",0),x.get("potential_vs_median",0)),reverse=True)
+    rows=list(dedup.values()); rows.sort(key=lambda x:(x.get("score",0),x.get("potential_vs_median",0)),reverse=True)
     payload={
         "updated":datetime.now(timezone.utc).isoformat(),
         "content_fingerprint":fingerprint,
         "provider":provider.health(),
         "content_triggers":len(evos),
-        "market_filter_groups":len(groups),
-        "market_rows_scanned":sum(len(v) for v in pools.values()),
+        "market_request_filters":params,
+        "market_rows_scanned":len(snapshot),
         "scoring_note":"Supply is a price-distribution proxy from the cheapest qualifying market cards; no live auction-count claim is made.",
         "opportunities":rows[:150]
     }
     os.makedirs("data",exist_ok=True)
     with open("data/market.json","w",encoding="utf-8") as f:json.dump(payload,f,ensure_ascii=False,indent=2)
-    print("market rows scanned:",sum(len(v) for v in pools.values()))
     print("market opportunities:",len(rows))
 
 if __name__=="__main__":run()
