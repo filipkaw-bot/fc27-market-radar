@@ -1,89 +1,49 @@
 import json,os,math
 from datetime import datetime,timezone
 from market_provider import MarketProvider
-
 TAX=0.05
-
-def first(obj,*keys,default=None):
+def first(o,*keys,default=None):
     for k in keys:
-        if isinstance(obj,dict) and obj.get(k) is not None:return obj[k]
+        if isinstance(o,dict) and o.get(k) is not None:return o[k]
     return default
-
-def price_snapshot(raw):
-    if not isinstance(raw,dict): return {}
-    p=first(raw,"price_trend","priceTrend",default={}) or {}
-    return {
-        "bin":first(p,"lowest_bin","lowestBin","current_lowest_bin",default=first(raw,"lowest_bin","lowestBin")),
-        "avg":first(p,"average","avg"),
-        "yesterday":first(p,"yesterday_average_bin","yesterdayAverageBin"),
-        "change":first(p,"change_vs_yesterday_pct","changeVsYesterdayPct","momentum_pct"),
-        "momentum":first(p,"momentum_pct","momentumPct"),
-        "updated":first(raw,"updated_at","updatedAt"),
-        "extinct":bool(first(raw,"extinct","is_extinct",default=False)),
-        "auctions":first(raw,"live_auctions","liveAuctions",default=[]) or []
-    }
-
-def net_sale(price):
-    return math.floor(float(price)*0.95)
-
-def opportunity(card, snap, trigger="market"):
-    price=snap.get("bin")
-    if not price:return None
-    change=float(snap.get("change") or 0)
-    extinct=snap.get("extinct",False)
-    auctions=snap.get("auctions") or []
-    score=35
-    tags=["MARKET"]
-    if change>=10:score+=20;tags.append("MOMENTUM")
-    elif change>=5:score+=10;tags.append("RISING")
-    if extinct:score+=20;tags.append("LOW SUPPLY")
-    if not auctions:score+=8;tags.append("THIN MARKET")
-    if trigger!="market":score+=10;tags.append("CONTENT TRIGGER")
-    score=min(100,score)
-    action="buy" if score>=85 else "watch" if score>=60 else "skip"
-    return {
-        "card_id":first(card,"card_id","id"),
-        "name":first(card,"name",default="Unknown"),
-        "rating":first(card,"rating"),
-        "position":first(card,"position"),
-        "league":first(card,"league"),
-        "club":first(card,"club"),
-        "price":price,
-        "net_sale":net_sale(price),
-        "change":change,
-        "extinct":extinct,
-        "auction_count":len(auctions),
-        "score":score,
-        "action":action,
-        "tags":tags,
-        "why":"Wzrost ceny/podaży jest sygnałem rynku; radar nie kupuje automatycznie.",
-        "updated":snap.get("updated") or datetime.now(timezone.utc).isoformat()
-    }
-
+def flatten(data):
+    p=first(data,"players","items","data",default=[]) or []
+    if isinstance(p,dict): p=first(p,"players","items","data",default=[])
+    return p if isinstance(p,list) else []
 def run():
     provider=MarketProvider(platform=os.getenv("FC27_PLATFORM","ps"))
-    if not provider.enabled:
-        raise RuntimeError("PARSE_API_KEY missing")
+    if not provider.enabled: raise RuntimeError("PARSE_API_KEY missing")
+    with open("data/opportunities.json",encoding="utf-8") as f: content=json.load(f)
+    evos=[x for x in content if x.get("kind")=="Evolutions" and x.get("requirements")]
     rows=[]
-    # Broad but credit-aware scan: cheap cards first, then a small sample for price details.
-    for page in range(1,4):
-        data=provider.players(page=page,sort_by="price",sort_order="asc")
-        players=first(data,"players","items","data",default=[]) or []
-        if isinstance(players,dict):players=players.get("items",[])
-        for card in players:
-            cid=first(card,"card_id","id")
-            if not cid:continue
-            try:
-                snap=price_snapshot(provider.prices(cid))
-                item=opportunity(card,snap)
-                if item and item["action"]!="skip":rows.append(item)
+    for evo in evos[:4]:
+        req=evo["requirements"]; max_rating=req.get("overall_max"); positions=req.get("positions") or []
+        if not max_rating or not positions: continue
+        for pos in positions[:3]:
+            try: data=provider.players(position=pos,max_rating=max_rating,sort_by="price",sort_order="asc",page=1)
             except Exception as e:
-                print("price failed",cid,e)
-    rows.sort(key=lambda x:x["score"],reverse=True)
+                print("query failed",e); continue
+            for idx,p in enumerate(flatten(data)[:20]):
+                price=first(p,"price")
+                if not isinstance(price,(int,float)) or price<=0: continue
+                rating=first(p,"rating")
+                if rating and int(rating)>int(max_rating): continue
+                rows.append({"card_id":str(first(p,"card_id","id")),"name":first(p,"name",default="Unknown"),"rating":rating,"position":first(p,"position"),"league":first(p,"league"),"club":first(p,"club"),"card_type":first(p,"card_type"),"price":int(price),"evolution":evo["name"],"position_query":pos,"rank_in_query":idx+1})
+    uniq={x["card_id"]:x for x in rows}; rows=list(uniq.values())
+    prices=sorted(x["price"] for x in rows); median=prices[len(prices)//2] if prices else None
+    for x in rows:
+        rank=sorted(prices).index(x["price"])+1
+        score=63
+        if median and x["price"]<median*.75: score+=18
+        elif median and x["price"]<median*.9: score+=10
+        if rank<=3: score+=12
+        x["score"]=min(100,score); x["action"]="buy" if score>=85 else "watch"
+        x["net_sale"]=math.floor(x["price"]*(1-TAX))
+        x["potential_vs_median"]=None if not median else round((median-x["price"])/median*100,1)
+        x["tags"]=["EVO","ELIGIBLE"]+([ "LOW PRICE" ] if rank<=3 else [])
+        x["why"]=f"Spełnia wymagania {x['evolution']}; cena {x['price']:,}. Pozycja {rank} wśród znalezionych kwalifikujących kart."
     os.makedirs("data",exist_ok=True)
     with open("data/market.json","w",encoding="utf-8") as f:
-        json.dump({"updated":datetime.now(timezone.utc).isoformat(),"provider":provider.health(),"opportunities":rows[:100]},f,ensure_ascii=False,indent=2)
-    return rows
-
-if __name__=="__main__":
-    print("market opportunities:",len(run()))
+        json.dump({"updated":datetime.now(timezone.utc).isoformat(),"provider":provider.health(),"content_triggers":len(evos),"opportunities":sorted(rows,key=lambda x:x["score"],reverse=True)[:100]},f,ensure_ascii=False,indent=2)
+    print("targeted opportunities:",len(rows))
+if __name__=="__main__": run()
