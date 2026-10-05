@@ -2,7 +2,7 @@ import os,json
 from urllib.request import Request,urlopen
 
 API_KEY=os.getenv("PARSE_API_KEY","").strip()
-BASE_URL=os.getenv("PARSE_FUTGG_BASE_URL","https://api.parse.bot/marketplace/21627d36-0117-4b4e-9528-0a138ddc3f31/fut-gg-api").rstrip("/")
+BASE_URL=os.getenv("PARSE_FUTGG_BASE_URL","https://api.parse.bot/scraper/21627d36-0117-4b4e-9528-0a138ddc3f31").rstrip("/")
 
 class MarketProvider:
     def __init__(self,platform="ps"):
