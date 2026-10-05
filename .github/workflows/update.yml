@@ -43,7 +43,11 @@ jobs:
         run: |
           git config user.name "fc27-market-radar"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/fc27-radar-data
+          cp data/*.json /tmp/fc27-radar-data/
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/fc27-radar-data/*.json data/
           git add data/
           git diff --cached --quiet || git commit -m "Update FC27 radar data [skip ci]"
-          git pull --rebase origin main
           git push
