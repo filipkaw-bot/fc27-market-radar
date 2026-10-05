@@ -1,11 +1,11 @@
 import json,os,urllib.parse
-from urllib.request import Request,urlopen
+from urllib.request import Request,urlopen\nfrom urllib.error import HTTPError
 TOKEN=os.getenv("TELEGRAM_BOT_TOKEN","").strip(); CHAT=os.getenv("TELEGRAM_CHAT_ID","").strip()
 def send(msg):
     if not TOKEN or not CHAT: print("Telegram not configured; skipping"); return False
     url=f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     body=urllib.parse.urlencode({"chat_id":CHAT,"text":msg}).encode()
-    with urlopen(Request(url,data=body,headers={"Content-Type":"application/x-www-form-urlencoded"}),timeout=20) as r: return True
+    try:\n        with urlopen(Request(url,data=body,headers={"Content-Type":"application/x-www-form-urlencoded"}),timeout=20) as r:\n            print(r.read().decode())\n            return True\n    except HTTPError as e:\n        print("Telegram API error:", e.code, e.read().decode())\n        return False
 def main():
     import sys
     if not TOKEN or not CHAT: return
