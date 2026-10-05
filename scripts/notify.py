@@ -7,7 +7,11 @@ def send(msg):
     body=urllib.parse.urlencode({"chat_id":CHAT,"text":msg}).encode()
     with urlopen(Request(url,data=body,headers={"Content-Type":"application/x-www-form-urlencoded"}),timeout=20) as r: return True
 def main():
+    import sys
     if not TOKEN or not CHAT: return
+    if "--test" in sys.argv:
+        send("🧪 FC27 MARKET RADAR — TEST\n\nTelegram działa poprawnie. Radar może teraz wysyłać alerty.")
+        return
     try: data=json.load(open("data/market.json",encoding="utf-8"))
     except: return
     alerts=[x for x in data.get("opportunities",[]) if x.get("score",0)>=85 and x.get("action")=="buy"]
