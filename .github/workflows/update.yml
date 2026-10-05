@@ -1,5 +1,7 @@
 name: Update FC27 Radar
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       telegram_test:
@@ -10,6 +12,9 @@ on:
     - cron: "*/15 * * * *"
 permissions:
   contents: write
+concurrency:
+  group: fc27-radar-update
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
