@@ -4,7 +4,8 @@ from urllib.request import Request,urlopen
 from urllib.error import HTTPError,URLError
 
 BASE_URL=os.getenv("FUTFLIPPER_BASE_URL","https://futflipper.com").rstrip("/")
-MAX_PAGES=int(os.getenv("FUTFLIPPER_MAX_PAGES","20"))
+MAX_PAGES=int(os.getenv("FUTFLIPPER_MAX_PAGES","15"))
+CARD_TYPES=("bronze","silver","gold")
 DELAY=float(os.getenv("FUTFLIPPER_PAGE_DELAY","0.4"))
 
 def _price(s):
@@ -59,7 +60,7 @@ class MarketProvider:
     def __init__(self,platform="ps"):
         self.platform=platform; self.enabled=True
     def _get_page(self,page):
-        url=f"{BASE_URL}/prices?page={page}&sort=price_asc"
+        url=f"{BASE_URL}/prices?type={card_type}&page={page}&sort=price_asc"
         req=Request(url,headers={
             "User-Agent":random.choice([
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
@@ -74,28 +75,27 @@ class MarketProvider:
         min_rating=int(filters.get("min_rating",40) or 40); max_rating=int(filters.get("max_rating",99) or 99)
         wanted=set((filters.get("position") or "").split(",")) if filters.get("position") else set()
         out=[]; seen=set()
-        for page in range(1,MAX_PAGES+1):
-            try:html=self._get_page(page)
-            except (HTTPError,URLError,TimeoutError) as e:
-                print(f"FUTFLIPPER page {page} failed: {e}"); break
-            p=_CardParser(); p.feed(html)
-            if not p.cards:
-                print(f"FUTFLIPPER page {page}: no cards; bytes={len(html)} sample={html[:1000]!r}")
-                break
-            if page==1: print("FUTFLIPPER raw cards:", repr(p.cards[:3]))
-            kept=0
-            for href,text in p.cards:
-                card=_parse_card(href,text)
-                if not card or card["id"] in seen:continue
-                seen.add(card["id"])
-                if not(min_rating<=card["rating"]<=max_rating):continue
-                if wanted and card["position"] not in wanted:continue
-                if card["price"]<200:continue
-                out.append(card); kept+=1
-            print(f"FUTFLIPPER page {page}: {len(p.cards)} cards, kept {kept}, total {len(out)}")
-            if page<MAX_PAGES:time.sleep(DELAY)
+        for card_type in CARD_TYPES:
+            for page in range(1,MAX_PAGES+1):
+                try:html=self._get_page(page)
+                except (HTTPError,URLError,TimeoutError) as e:
+                    print(f"FUTFLIPPER {card_type} page {page} failed: {e}"); break
+                p=_CardParser(); p.feed(html)
+                if not p.cards:
+                    print(f"FUTFLIPPER {card_type} page {page}: no cards"); break
+                kept=0
+                for href,text in p.cards:
+                    card=_parse_card(href,text)
+                    if not card or card["id"] in seen:continue
+                    seen.add(card["id"])
+                    if not(min_rating<=card["rating"]<=max_rating):continue
+                    if wanted and card["position"] not in wanted:continue
+                    if card["price"]<200:continue
+                    out.append(card); kept+=1
+                print(f"FUTFLIPPER {card_type} page {page}: {len(p.cards)} cards, kept {kept}, total {len(out)}")
+                if page<MAX_PAGES:time.sleep(DELAY)
         return {"players":out}
     def prices(self,card_id):
         raise RuntimeError("Market provider uses FUT Flipper live FC27 price list.")
     def health(self):
-        return {"enabled":True,"provider":"FUT Flipper FC27 live console prices","platform":"ps/xbox","endpoint":"https://futflipper.com/prices"}
+        return {"enabled":True,"provider":"FUT Flipper FC27 live console prices","platform":"ps/xbox","endpoint":"https://futflipper.com/prices","card_types_scanned":list(CARD_TYPES)}
