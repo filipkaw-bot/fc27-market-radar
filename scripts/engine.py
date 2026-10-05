@@ -108,14 +108,12 @@ def run():
     try:
         with open("data/market.json",encoding="utf-8") as f:old=json.load(f)
     except Exception:old={}
-    if old.get("content_fingerprint")==fingerprint and old.get("opportunities"):
-        print("content unchanged; keeping existing market scan");return
     try:
-        snapshot,params=market_snapshot(provider,evos[:12])
+        snapshot,params=market_snapshot(provider,evos)
         print("market request filters:",params)
         print("market rows:",len(snapshot))
         rows=[]
-        for evo in evos[:12]:
+        for evo in evos:
             req=evo["requirements"]
             rows.extend(score_pool([dict(p) for p in snapshot if qualifies(p,req)],evo["name"]))
     except Exception as e:
