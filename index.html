@@ -1,27 +1,3 @@
 <!doctype html>
-<html lang="pl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#080b12">
-<meta name="description" content="FC27 Market Radar — wykrywanie okazji tradingowych w Ultimate Team.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="assets/icon-192.png">
-<title>FC27 Market Radar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="assets/app.css">
-</head>
-<body>
-<header class="topbar"><div class="brand"><div class="eyebrow">ULTIMATE TEAM • INTELLIGENCE</div><h1>FC27 <span>MARKET RADAR</span></h1><p>Wyszukuje sztuczny popyt, bottlenecks i karty z najlepszym potencjałem.</p></div><div class="live"><i></i><div><b>RADAR ONLINE</b><small>automatyczny skan</small></div></div></header>
-<main>
-<section class="hero"><div><div class="hero-kicker">MARKET OPPORTUNITIES</div><h2>Najlepsze okazje <span>teraz</span></h2><p>Bez sztywnych filtrów. Radar analizuje zmiany w contentcie i szuka ograniczonej podaży.</p></div><div class="tax"><b>5%</b><span>EA TAX</span></div></section>
-<section class="stats"><div class="stat accent"><span>WYKRYTE OKAZJE</span><b id="opps">—</b><small>z aktualnego skanu</small></div><div class="stat"><span>🟢 KUP TERAZ</span><b id="buy">—</b><small>score ≥ 85</small></div><div class="stat"><span>🟡 OBSERWUJ</span><b id="watch">—</b><small>score 60–84</small></div><div class="stat"><span>SKAN</span><b id="age">—</b><small id="updated">Ładowanie…</small></div></section>
-<nav class="filters"><button class="active" data-filter="all">Wszystko</button><button data-filter="buy">🟢 Kup teraz</button><button data-filter="watch">🟡 Obserwuj</button><button data-filter="Objectives">Objectives</button><button data-filter="SBC">SBC</button><button data-filter="Evolutions">Evolutions</button></nav>
-<section class="layout"><div class="maincol"><div class="section-head"><div><span class="eyebrow">LIVE SIGNALS</span><h2>Market Radar</h2></div><span class="count" id="shown">0 sygnałów</span></div><div id="cards"></div></div><aside><div class="section-head"><div><span class="eyebrow">PREDICTION</span><h2>TOTW Radar</h2></div></div><div class="totw-intro">Kto ma największą szansę na IF w następnym TOTW?</div><div id="totw"></div></aside></section>
-<footer><span>FC27 MARKET RADAR</span><span>Rekomendacje only • brak automatycznego kupowania</span></footer>
-</main>
-<script>
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
-</script>
-<script src="assets/app.js"></script>
-</body></html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080b12"><meta name="description" content="FC27 Market Radar — wykrywanie okazji tradingowych w Ultimate Team."><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="assets/icon-192.png"><title>FC27 Market Radar</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="assets/app.css"></head>
+<body><header class="topbar"><div class="brand"><div class="eyebrow">ULTIMATE TEAM • INTELLIGENCE</div><h1>FC27 <span>MARKET RADAR</span></h1><p>Wyszukuje sztuczny popyt, bottlenecks i karty z najlepszym potencjałem.</p></div><div class="live"><i></i><div><b>RADAR ONLINE</b><small>automatyczny skan</small></div></div></header><main><section class="hero"><div><div class="hero-kicker">MARKET OPPORTUNITIES</div><h2>Najlepsze okazje <span>teraz</span></h2><p>Bez sztywnych filtrów. Radar analizuje zmiany w contentcie i szuka ograniczonej podaży.</p></div><div class="tax"><b>5%</b><span>EA TAX</span></div></section><section class="stats"><div class="stat accent"><span>WYKRYTE OKAZJE</span><b id="opps">—</b><small>z aktualnego skanu</small></div><div class="stat"><span>🟢 KUP TERAZ</span><b id="buy">—</b><small>score ≥ 85</small></div><div class="stat"><span>🟡 OBSERWUJ</span><b id="watch">—</b><small>score 60–84</small></div><div class="stat"><span>SKAN</span><b id="age">—</b><small id="updated">Ładowanie…</small></div></section><nav class="filters"><button class="active" data-filter="all">Wszystko</button><button data-filter="buy">🟢 Kup teraz</button><button data-filter="watch">🟡 Obserwuj</button><button data-filter="Objectives">Objectives</button><button data-filter="SBC">SBC</button><button data-filter="Evolutions">Evolutions</button></nav><section class="layout"><div class="maincol"><div class="section-head"><div><span class="eyebrow">LIVE SIGNALS</span><h2>Market Radar</h2></div><span class="count" id="shown">0 sygnałów</span></div><div id="cards"></div></div><aside><div class="section-head"><div><span class="eyebrow">PREDICTION</span><h2>TOTW Radar</h2></div></div><div class="totw-intro">Kto ma największą szansę na IF w następnym TOTW?</div><div id="totw"></div></aside></section><footer><span>FC27 MARKET RADAR</span><span>Rekomendacje only • brak automatycznego kupowania</span></footer></main><script>if("serviceWorker"in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script><script src="assets/app.js"></script></body></html>
