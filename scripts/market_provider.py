@@ -38,33 +38,22 @@ class _CardParser(HTMLParser):
 def _parse_card(href,text):
     cid=_id(href)
     if not cid:return None
-    m=re.search(r"^(\d{2})\s*([A-Z]{2,4})\b\s*(.*)$",text)
+    m=re.match(r"^(\d{2})\s*([A-Z]{2,4})\s+(.+?)\s+\d{2}\s+PAC\b",text)
     if not m:return None
-    rating=int(m.group(1)); position=m.group(2)
-    rest=m.group(3).strip()
-    # Card listings end with current price and optional percentage trend.
-    pm=re.search(r"([0-9][0-9.,]*\s*[KM]?)\s*([+-][0-9]+(?:\.[0-9]+)?%)?$",rest)
+    rating=int(m.group(1)); position=m.group(2); name=m.group(3).strip()
+    pm=re.search(r"~\s*([0-9][0-9.,]*\s*[KM]?)",text,re.I)
     if not pm:return None
     price=_price(pm.group(1))
     trend=None
-    if pm.group(2):
-        try:trend=float(pm.group(2).replace("%",""))
+    tm=re.search(r"([+-]\d+(?:\.\d+)?%)\s*$",text)
+    if tm:
+        try:trend=float(tm.group(1).replace("%",""))
         except ValueError:trend=None
-    body=rest[:pm.start()].strip()
-    # Remove common stat block: six consecutive XX values before version.
-    stat=re.search(r"(?:\s+\d{2}){5,7}\s+(Icon|Hero|Gold|Silver|Bronze|Team of the Week|Destined for Glory|Normal)\b",body)
-    if stat:
-        body=body[:stat.start()].strip()+" "+stat.group(1)
     version=""
-    versions=["Destined for Glory","Team of the Week","Holographic","Icon","Hero","Gold","Silver","Bronze","Normal"]
-    for v in versions:
-        if body.endswith(v):
-            version=v; body=body[:-len(v)].strip(); break
-    # If stats are still present, take name as the first sensible token sequence.
-    name=body
-    # Remove leading face stats if the card text begins with them after name is already known.
-    name=re.sub(r"\s+\d{2}(?:\s+\d{2}){5,7}\s*$","",name).strip()
-    return {"id":cid,"name":name or "Unknown","rating":rating,"position":position,"price_ps_coins":price,"price":price,"trend_ps":trend,"version":version}
+    for v in ["Destined for Glory","Team of the Week","Holographic","Icon","Hero","Gold","Silver","Bronze","Normal"]:
+        if re.search(r"\b"+re.escape(v)+r"\b",text,re.I):
+            version=v; break
+    return {"id":cid,"name":name,"rating":rating,"position":position,"price_ps_coins":price,"price":price,"trend_ps":trend,"version":version}
 
 class MarketProvider:
     def __init__(self,platform="ps"):
