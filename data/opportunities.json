@@ -1,371 +1,337 @@
 [
   {
-    "name": "Requirements",
+    "name": "Destined for Glory Tarciane",
+    "kind": "SBC",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "SBC"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Destined for Glory Akliouche",
+    "kind": "SBC",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "SBC"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Destined for Glory Davide Frattesi",
+    "kind": "SBC",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "SBC"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/sbc/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "FUT Grid Token Store Players All Players Compare Past &amp; Present Evo",
+    "kind": "Objectives",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "Objectives"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Season Pass Live Events New Squad Squad Builder Gauntlet Builder New My",
+    "kind": "Objectives",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "Objectives"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Leaderboards Evo Leaderboards Campaigns In Packs Live Hub Upgrade Hub C",
+    "kind": "Objectives",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "Objectives"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Chemistry Styles New Leagues Rarities PlayStyles Roles Games Archive La",
+    "kind": "Objectives",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "Objectives"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Destined for Glory: Strikers Only Compete in the Destined for Glory: St",
+    "kind": "Objectives",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "Objectives"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Squad Battles: Champions Qualification Points Compete in Squad Battles",
+    "kind": "Objectives",
+    "score": 45,
+    "action": "watch",
+    "tags": [
+      "Objectives"
+    ],
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/objectives/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
+  },
+  {
+    "name": "Regista Realm",
     "kind": "Evolutions",
-    "score": 78,
+    "requirements": {
+      "overall_max": 80,
+      "positions": [
+        "CDM",
+        "CM"
+      ],
+      "excluded_positions": [
+        "ST",
+        "CAM",
+        "CB"
+      ],
+      "max_playstyles": 7,
+      "pace_max": 83
+    },
+    "example_player": "PHY",
+    "example_rating": 83,
+    "example_position": "CDM",
+    "score": 55,
     "action": "watch",
     "tags": [
       "Evolutions",
-      "NEW",
-      "EXPIRING",
       "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
     "source": "https://www.fut.gg/evolutions/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "Pos.",
+    "name": "Wing Specialization",
     "kind": "Evolutions",
-    "score": 78,
+    "requirements": {
+      "overall_max": 79,
+      "positions": [
+        "RM",
+        "RW"
+      ],
+      "excluded_positions": [
+        "ST",
+        "CDM"
+      ],
+      "max_playstyles": 7,
+      "pace_max": null
+    },
+    "example_player": "PHY",
+    "example_rating": 70,
+    "example_position": "RB",
+    "score": 55,
     "action": "watch",
     "tags": [
       "Evolutions",
-      "NEW",
-      "EXPIRING",
       "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
     "source": "https://www.fut.gg/evolutions/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "Max.",
+    "name": "Flank Identity",
     "kind": "Evolutions",
-    "score": 78,
+    "requirements": {
+      "overall_max": 79,
+      "positions": [
+        "LM",
+        "LW"
+      ],
+      "excluded_positions": [
+        "ST",
+        "CDM",
+        "LB"
+      ],
+      "max_playstyles": 7,
+      "pace_max": 85
+    },
+    "example_player": "PHY",
+    "example_rating": 72,
+    "example_position": "CM",
+    "score": 55,
     "action": "watch",
     "tags": [
       "Evolutions",
-      "NEW",
-      "EXPIRING",
       "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
     "source": "https://www.fut.gg/evolutions/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "All",
-    "kind": "SBC",
-    "score": 73,
+    "name": "Pivot Shift",
+    "kind": "Evolutions",
+    "requirements": {
+      "overall_max": 79,
+      "positions": [
+        "CDM",
+        "CM"
+      ],
+      "excluded_positions": [
+        "ST",
+        "CAM",
+        "CB"
+      ],
+      "max_playstyles": 7,
+      "pace_max": 83
+    },
+    "example_player": "PHY",
+    "example_rating": 83,
+    "example_position": "CDM",
+    "score": 55,
     "action": "watch",
     "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
+      "Evolutions",
+      "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "Expired",
-    "kind": "SBC",
-    "score": 73,
+    "name": "Frontline Paradox",
+    "kind": "Evolutions",
+    "requirements": {
+      "overall_max": 79,
+      "positions": [
+        "ST"
+      ],
+      "excluded_positions": [
+        "CM",
+        "LM",
+        "RM"
+      ],
+      "max_playstyles": 7,
+      "pace_max": 85
+    },
+    "example_player": "Leroux",
+    "example_rating": 81,
+    "example_position": "ST",
+    "score": 55,
     "action": "watch",
     "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
+      "Evolutions",
+      "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "Players",
-    "kind": "SBC",
-    "score": 73,
+    "name": "Midfield Glow Up",
+    "kind": "Evolutions",
+    "requirements": {
+      "overall_max": 74,
+      "positions": [
+        "CDM"
+      ],
+      "excluded_positions": [
+        "CAM",
+        "CB",
+        "ST"
+      ],
+      "max_playstyles": 7,
+      "pace_max": 85
+    },
+    "example_player": "PHY",
+    "example_rating": 78,
+    "example_position": "CDM",
+    "score": 55,
     "action": "watch",
     "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
+      "Evolutions",
+      "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "Upgrades",
-    "kind": "SBC",
-    "score": 73,
+    "name": "Evolutions",
+    "kind": "Evolutions",
+    "requirements": {
+      "overall_max": 75,
+      "positions": [
+        "RB"
+      ],
+      "excluded_positions": [
+        "CB"
+      ],
+      "max_playstyles": 7,
+      "pace_max": 80
+    },
+    "example_player": "PHY",
+    "example_rating": 78,
+    "example_position": "LB",
+    "score": 55,
     "action": "watch",
     "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
+      "Evolutions",
+      "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   },
   {
-    "name": "Challenges",
-    "kind": "SBC",
-    "score": 73,
+    "name": "Training Camp EVOs",
+    "kind": "Evolutions",
+    "requirements": {
+      "overall_max": 80,
+      "positions": [],
+      "excluded_positions": [],
+      "max_playstyles": 3,
+      "pace_max": null
+    },
+    "example_player": "PHY",
+    "example_rating": 69,
+    "example_position": "LB",
+    "score": 55,
     "action": "watch",
     "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
+      "Evolutions",
+      "REQUIREMENTS"
     ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Tarciane",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Challenge",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Akliouche",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Upgrade",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "TOTW",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "September",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Frattesi",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Repeatable",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Every",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Pack",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "SBCs",
-    "kind": "SBC",
-    "score": 73,
-    "action": "watch",
-    "tags": [
-      "SBC",
-      "NEW",
-      "EXPIRING",
-      "SBC"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/sbc/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Season",
-    "kind": "Objectives",
-    "score": 68,
-    "action": "watch",
-    "tags": [
-      "Objectives",
-      "NEW",
-      "EXPIRING"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/objectives/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Squad",
-    "kind": "Objectives",
-    "score": 68,
-    "action": "watch",
-    "tags": [
-      "Objectives",
-      "NEW",
-      "EXPIRING"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/objectives/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Leaderboards",
-    "kind": "Objectives",
-    "score": 68,
-    "action": "watch",
-    "tags": [
-      "Objectives",
-      "NEW",
-      "EXPIRING"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/objectives/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Chemistry",
-    "kind": "Objectives",
-    "score": 68,
-    "action": "watch",
-    "tags": [
-      "Objectives",
-      "NEW",
-      "EXPIRING"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/objectives/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Leagues",
-    "kind": "Objectives",
-    "score": 68,
-    "action": "watch",
-    "tags": [
-      "Objectives",
-      "NEW",
-      "EXPIRING"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/objectives/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
-  },
-  {
-    "name": "Destined",
-    "kind": "Objectives",
-    "score": 68,
-    "action": "watch",
-    "tags": [
-      "Objectives",
-      "NEW",
-      "EXPIRING"
-    ],
-    "why": "Wykryto zmianę lub aktywny element contentu. Cena i ograniczenie podaży wymagają potwierdzenia przez provider rynku.",
-    "source": "https://www.fut.gg/objectives/",
-    "updated": "2026-10-05T15:06:09.143151+00:00"
+    "why": "Wykryto aktywny element contentu; wymagania zapisane do analizy rynku.",
+    "source": "https://www.fut.gg/evolutions/",
+    "updated": "2026-10-05T15:09:56.987691+00:00"
   }
 ]

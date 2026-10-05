@@ -1,9 +1,11 @@
 {
-  "updated": "2026-10-05T15:06:21.384047+00:00",
+  "updated": "2026-10-05T15:10:18.849243+00:00",
+  "content_fingerprint": "62b66f1887600f42a246302a541e1320790909ecd493cdbf3e2ecb987f9610ca",
   "provider": {
     "enabled": true,
     "provider": "Parse / FUT.GG data wrapper",
     "platform": "ps"
   },
+  "content_triggers": 8,
   "opportunities": []
 }
