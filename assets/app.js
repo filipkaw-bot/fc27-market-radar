@@ -1,8 +1,14 @@
 let data={opportunities:[],market:[],totw:[]},filter="all";
+const RAW="https://raw.githubusercontent.com/filipkaw-bot/fc27-market-radar/main/data/";
+async function getJson(name){
+ const r=await fetch(RAW+name+"?t="+Date.now(),{cache:"no-store"});
+ if(!r.ok)throw new Error(r.status);
+ return r.json();
+}
 async function load(){
- try{data.opportunities=await(await fetch("data/opportunities.json")).json()}catch{}
- try{data.market=(await(await fetch("data/market.json")).json()).opportunities||[]}catch{}
- try{data.totw=await(await fetch("data/totw.json")).json()}catch{}
+ try{data.opportunities=await getJson("opportunities.json")}catch{}
+ try{data.market=(await getJson("market.json")).opportunities||[]}catch{}
+ try{data.totw=await getJson("totw.json")}catch{}
  render()
 }
 const esc=v=>String(v??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
