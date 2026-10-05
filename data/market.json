@@ -1,14 +1,15 @@
 {
-  "updated": "2026-10-05T16:43:50.158273+00:00",
-  "content_fingerprint": "3a072214e672cc7283b4c4a93aecd2c33d821a999cf0669c1eb14e11ff7b2909",
+  "updated": "2026-10-05T16:52:15.693679+00:00",
+  "content_fingerprint": "4fc67b6f202730b5276516542bfb0822c1c53febbdeee085889b98736a5dae63",
   "provider": {
     "enabled": true,
-    "provider": "Parse / FUT.GG data wrapper",
-    "platform": "ps"
+    "provider": "Parse / FUTBIN data wrapper",
+    "platform": "ps",
+    "endpoint": "list_fc27_players"
   },
   "content_triggers": 8,
-  "market_pages": 4,
+  "market_filter_groups": 6,
   "market_rows_scanned": 0,
-  "scoring_note": "Supply is a price-distribution proxy; no live auction-count claim is made.",
+  "scoring_note": "Supply is a price-distribution proxy from the cheapest qualifying market cards; no live auction-count claim is made.",
   "opportunities": []
 }
