@@ -1,13 +1,13 @@
 {
-  "updated": "2026-10-05T17:00:27.657998+00:00",
-  "content_fingerprint": "a35afe36da52ef2317750cb7854ccee8eae3aab7f51c3861218507d564fcfa3b",
+  "updated": "2026-10-05T17:00:45.401190+00:00",
+  "content_fingerprint": "dd392e141fef3aafb56555357dc74b88263f52856c7107599807be98423e69ef",
   "provider": {
     "enabled": true,
     "provider": "FUTBIN FC27 web player table",
     "platform": "ps",
     "endpoint": "https://www.futbin.com/27/players"
   },
-  "content_triggers": 7,
+  "content_triggers": 6,
   "market_request_filters": {
     "sort_by_price": "asc",
     "min_price": 200,
