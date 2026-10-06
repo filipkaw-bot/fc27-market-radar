@@ -261,6 +261,45 @@ class MarketProvider:
                 self.last_error=f"FUTBIN parser failed: {e}"
                 break
             if not rows:
+                # Last-resort text mirror. FUTBIN sometimes serves an anti-bot shell
+                # to headless browsers; r.jina.ai can expose the same public table as
+                # readable markdown without changing the data source.
+                try:
+                    mirror=f"https://r.jina.ai/http://www.futbin.com/27/players?page={page}"
+                    mreq=Request(mirror,headers={"User-Agent":"Mozilla/5.0","Accept":"text/plain"})
+                    with urlopen(mreq,timeout=30) as mr:
+                        md=mr.read().decode("utf-8","ignore")
+                    for line in md.splitlines():
+                        if "/27/player/" not in line or "|" not in line:
+                            continue
+                        mm=re.search(r"/27/player/(\\d+)",line)
+                        if not mm:
+                            continue
+                        cells=[x.strip() for x in line.strip().strip("|").split("|")]
+                        if len(cells)<6:
+                            continue
+                        def num2(s):
+                            s=re.sub(r"[^0-9KM.]", "", s.upper()).strip()
+                            try:
+                                if s.endswith("K"): return int(float(s[:-1])*1000)
+                                if s.endswith("M"): return int(float(s[:-1])*1000000)
+                                return int(float(s))
+                            except: return 0
+                        price=num2(cells[5])
+                        if price<=0:
+                            continue
+                        nm=re.sub(r"\\[([^]]+)\\]\\([^)]*\\)", r"\\1", cells[0])
+                        result.append({
+                            "id":mm.group(1),"name":nm or "Unknown",
+                            "rating":num2(cells[1]),"position":cells[2].split()[0] if len(cells)>2 else "",
+                            "price":price,"price_pc_coins":price,
+                            "league":"","club":"","nation":"","version":"",
+                            "platform":"pc","source_market":"FUTBIN PC","trend_pc":None
+                        })
+                    if result:
+                        continue
+                except Exception as e:
+                    self.last_error=f"FUTBIN browser+mirror fallback failed: {e}"
                 self.last_error=f"FUTBIN returned no player rows on page {page} (HTML {len(html)} bytes)"
                 break
             for row in rows:
