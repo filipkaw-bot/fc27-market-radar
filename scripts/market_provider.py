@@ -249,6 +249,14 @@ class MarketProvider:
                 rows=soup.select("tr.player-row")
                 if not rows:
                     rows=soup.select("tr[data-player-id], tr[class*='player-row']")
+                if not rows:
+                    # FUTBIN's current FC27 table does not always expose the
+                    # player-row class; recover rows from player links instead.
+                    seen=set()
+                    for link in soup.select("a[href*='/27/player/']"):
+                        row=link.find_parent("tr")
+                        if row is not None and id(row) not in seen:
+                            seen.add(id(row)); rows.append(row)
             except Exception as e:
                 self.last_error=f"FUTBIN parser failed: {e}"
                 break
