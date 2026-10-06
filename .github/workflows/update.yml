@@ -3,21 +3,17 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      telegram_test:
-        description: "Send Telegram test message"
-        required: false
-        default: "false"
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/5 * * * *"
 permissions:
   contents: write
 concurrency:
   group: fc27-radar-update
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,29 +21,21 @@ jobs:
           python-version: "3.12"
       - name: Update content radar
         run: python scripts/update.py
-      - name: Update market radar
-        run: python scripts/engine.py
-      - name: Telegram test
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.telegram_test == 'true' }}
+      - name: Update PC market radar from FUT.GG
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python scripts/notify.py --test
+          FC27_PLATFORM: pc
+          FUTGG_PAGES_PER_RUN: "20"
+        run: python scripts/engine.py
       - name: Telegram alerts
-        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.telegram_test == 'true') }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python scripts/notify.py
+        continue-on-error: true
       - name: Commit data
         run: |
           git config user.name "fc27-market-radar"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p /tmp/fc27-radar-data
-          cp data/*.json /tmp/fc27-radar-data/
-          git fetch origin main
-          git reset --hard origin/main
-          cp /tmp/fc27-radar-data/*.json data/
           git add data/
-          git diff --cached --quiet || git commit -m "Update FC27 radar data [skip ci]"
+          git diff --cached --quiet || git commit -m "Update FC27 PC radar data [skip ci]"
           git push
