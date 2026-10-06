@@ -272,7 +272,7 @@ class MarketProvider:
                     for line in md.splitlines():
                         if "/27/player/" not in line or "|" not in line:
                             continue
-                        mm=re.search(r"/27/player/(\\d+)",line)
+                        mm=re.search(r"/27/player/(\d+)",line)
                         if not mm:
                             continue
                         cells=[x.strip() for x in line.strip().strip("|").split("|")]
@@ -288,7 +288,7 @@ class MarketProvider:
                         price=num2(cells[5])
                         if price<=0:
                             continue
-                        nm=re.sub(r"\\[([^]]+)\\]\\([^)]*\\)", r"\\1", cells[0])
+                        nm=re.sub(r"\[([^]]+)\]\([^)]*\)", r"\\1", cells[0])
                         result.append({
                             "id":mm.group(1),"name":nm or "Unknown",
                             "rating":num2(cells[1]),"position":cells[2].split()[0] if len(cells)>2 else "",
