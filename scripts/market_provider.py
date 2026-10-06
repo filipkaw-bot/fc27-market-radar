@@ -242,14 +242,19 @@ class MarketProvider:
                     with urlopen(req,timeout=30) as r: html=r.read().decode("utf-8","ignore")
             except Exception as e:
                 self.last_error=f"FUTBIN fallback failed: {e}"; break
-            p=RowParser(); p.feed(html)
-            # Parse the rendered FUTBIN table.            try:
+            # Parse the rendered FUTBIN table.
+            try:
                 from bs4 import BeautifulSoup
                 soup=BeautifulSoup(html,"html.parser")
                 rows=soup.select("tr.player-row")
-            except Exception:
-                rows=[]
-            if not rows: break
+                if not rows:
+                    rows=soup.select("tr[data-player-id], tr[class*='player-row']")
+            except Exception as e:
+                self.last_error=f"FUTBIN parser failed: {e}"
+                break
+            if not rows:
+                self.last_error=f"FUTBIN returned no player rows on page {page} (HTML {len(html)} bytes)"
+                break
             for row in rows:
                 link=row.select_one("a[href*='/27/player/']")
                 if not link: continue
