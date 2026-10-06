@@ -61,6 +61,21 @@ class MarketProvider:
             self.last_error=f"request failed: {e}"
             raise RuntimeError(self.last_error) from e
 
+    def _get_prices(self,ids):
+        query="ids="+",".join(ids)+"&platform="+self.platform
+        url=f"{BASE}/player-prices/{GAME}/?{query}"
+        req=Request(url,headers={
+            "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
+            "Accept":"application/json,text/plain,*/*","Accept-Language":"en-US,en;q=0.9",
+            "Referer":"https://www.fut.gg/players/","Origin":"https://www.fut.gg"
+        })
+        try:
+            with urlopen(req,timeout=30) as r:
+                return json.loads(r.read().decode("utf-8","ignore"))
+        except Exception as e:
+            self.last_error=f"price endpoint failed: {e}"
+            return None
+
     @staticmethod
     def _payload(data):
         if not isinstance(data,dict): return {}
@@ -159,6 +174,33 @@ class MarketProvider:
         if advertised_platform and advertised_platform!=self.platform:
             raise RuntimeError(f"FUT.GG returned platform={advertised_platform}, expected {self.platform}")
         if not out:
+            # Direct FUT.GG price index fallback: player-prices/{year}/?ids=...&platform=pc
+            # This is the price feed used by the public FUT.GG web tooling.
+            try:
+                probe=self._payload(self._get(page=1,params=params))
+                ids=[]
+                for p in (probe.get("players") or [])[:30]:
+                    cid=str(p.get("card_id") or p.get("eaId") or p.get("id") or "")
+                    if cid: ids.append(cid)
+                if ids:
+                    priced=self._get_prices(ids)
+                    raw=(priced or {}).get("data") if isinstance(priced,dict) else None
+                    if isinstance(raw,list):
+                        price_by_id={}
+                        for item in raw:
+                            if not isinstance(item,dict): continue
+                            cid=str(item.get("id") or item.get("eaId") or item.get("card_id") or "")
+                            val=item.get("price")
+                            if isinstance(val,dict): val=val.get("pc") or val.get("PC") or val.get("current")
+                            try: val=int(float(val))
+                            except (TypeError,ValueError): continue
+                            if cid and val>0: price_by_id[cid]=val
+                        for p in self._normalize(probe.get("players") or [],self.platform):
+                            p["price"]=price_by_id.get(p["id"],0); p["price_pc_coins"]=p["price"]
+                            if p["price"]>0 and p["id"] not in seen:
+                                seen.add(p["id"]); out.append(p)
+            except Exception as e:
+                self.last_error=f"direct price fallback failed: {e}"
             try:
                 probe=self._payload(self._get(page=1,params=params))
                 probe_rows=probe.get("players") or []
