@@ -131,18 +131,8 @@ class MarketProvider:
 
     def players(self,**filters):
         out=[]; seen=set(); pages_used=0; advertised_platform=None
-        params={}
-        req=filters.get("requirements") or {}
-        if req.get("overall_max") is not None: params["max_rating"]=req["overall_max"]
-        if req.get("overall_min") is not None: params["min_rating"]=req["overall_min"]
-        positions=req.get("positions") or []
-        if len(positions)==1: params["position"]=positions[0]
-        params["sort_by"]="price"
-        params["sort_order"]="asc"
-        params["min_price"]=200
-        max_pages=min(PAGES_PER_RUN,5)
-        for page in range(1,max_pages+1):
-            data=self._get(page=page,params=params)
+        for page in range(1,PAGES_PER_RUN+1):
+            data=self._get(page=page,params={})
             pages_used=page
             payload=self._payload(data)
             advertised_platform=str(payload.get("platform") or data.get("platform") or "").lower()
@@ -151,19 +141,29 @@ class MarketProvider:
             if not rows: break
 
             normalized=self._normalize(rows,advertised_platform)
-            # Some FUT.GG responses expose catalogue metadata but leave prices at 0.
-            # Re-read that exact page by ids; this is the documented way to reach exact cards.
-            if page==1 and normalized and not any(x["price"]>0 for x in normalized):
-                ids=[x["id"] for x in normalized[:30]]
-                try:
-                    exact=self._payload(self._get(ids=ids))
-                    exact_rows=exact.get("players") or []
-                    exact_platform=str(exact.get("platform") or "").lower()
-                    if exact_platform: advertised_platform=exact_platform
-                    normalized=self._normalize(exact_rows,advertised_platform)
-                except Exception as e:
-                    self.last_error=f"ids fallback failed: {e}"
+            # The catalogue currently exposes many cards with price=0. Refresh every
+            # catalogue page through FUT.GG's direct player-prices index, in batches
+            # of 30. This recovers PC prices for cards whose catalogue snapshot is blank.
+            ids=[p["id"] for p in normalized if p["id"]]
+            price_by_id={}
+            if ids:
+                priced=self._get_prices(ids)
+                raw=(priced or {}).get("data") if isinstance(priced,dict) else None
+                if isinstance(raw,list):
+                    for item in raw:
+                        if not isinstance(item,dict): continue
+                        cid=str(item.get("id") or item.get("eaId") or item.get("card_id") or item.get("item_id") or "")
+                        val=item.get("price")
+                        if isinstance(val,dict):
+                            val=val.get("pc") or val.get("PC") or val.get("current") or val.get("value")
+                        if val is None:
+                            val=item.get("pc") or item.get("pc_price") or item.get("price_pc")
+                        try: val=int(float(val))
+                        except (TypeError,ValueError): continue
+                        if cid and val>0: price_by_id[cid]=val
             for p in normalized:
+                p["price"]=price_by_id.get(p["id"],p["price"])
+                p["price_pc_coins"]=p["price"]
                 if p["id"] in seen or p["price"]<=0: continue
                 seen.add(p["id"]); out.append(p)
 
@@ -174,46 +174,6 @@ class MarketProvider:
         if advertised_platform and advertised_platform!=self.platform:
             raise RuntimeError(f"FUT.GG returned platform={advertised_platform}, expected {self.platform}")
         if not out:
-            # Direct FUT.GG price index fallback: player-prices/{year}/?ids=...&platform=pc
-            # This is the price feed used by the public FUT.GG web tooling.
-            try:
-                probe=self._payload(self._get(page=1,params=params))
-                ids=[]
-                for p in (probe.get("players") or [])[:30]:
-                    cid=str(p.get("card_id") or p.get("eaId") or p.get("id") or "")
-                    if cid: ids.append(cid)
-                if ids:
-                    priced=self._get_prices(ids)
-                    raw=(priced or {}).get("data") if isinstance(priced,dict) else None
-                    if isinstance(raw,list):
-                        price_by_id={}
-                        for item in raw:
-                            if not isinstance(item,dict): continue
-                            cid=str(item.get("id") or item.get("eaId") or item.get("card_id") or item.get("item_id") or "")
-                            val=item.get("price")
-                            if isinstance(val,dict): val=val.get("pc") or val.get("PC") or val.get("current") or val.get("value")
-                            if val is None: val=item.get("pc") or item.get("pc_price") or item.get("price_pc")
-                            try: val=int(float(val))
-                            except (TypeError,ValueError): continue
-                            if cid and val>0: price_by_id[cid]=val
-                        for p in self._normalize(probe.get("players") or [],self.platform):
-                            p["price"]=price_by_id.get(p["id"],0); p["price_pc_coins"]=p["price"]
-                            if p["price"]>0 and p["id"] not in seen:
-                                seen.add(p["id"]); out.append(p)
-            except Exception as e:
-                self.last_error=f"direct price fallback failed: {e}"
-            try:
-                probe=self._payload(self._get(page=1,params=params))
-                probe_rows=probe.get("players") or []
-                print("FUT.GG DEBUG schema keys:",sorted(probe.keys()))
-                if probe_rows:
-                    first=probe_rows[0]
-                    print("FUT.GG DEBUG first card keys:",sorted(first.keys()))
-                    print("FUT.GG DEBUG first card price:",repr(first.get("price")))
-                    print("FUT.GG DEBUG first card id:",repr(first.get("card_id") or first.get("eaId") or first.get("id")))
-                    print("FUT.GG DEBUG platform:",repr(probe.get("platform")))
-            except Exception as e:
-                print("FUT.GG DEBUG probe failed:",repr(e))
             raise RuntimeError(f"FUT.GG returned zero priced {self.platform.upper()} cards after {pages_used} page(s)")
         return {"players":out}
 
