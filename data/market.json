@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-06T03:03:51.615495+00:00",
-  "content_fingerprint": "3d5c5c5770b2d04b1aa47c9b9b2c60bd9dc4438b7339225ca4d06436ebc44a0d",
+  "updated": "2026-10-06T03:25:26.381561+00:00",
+  "content_fingerprint": "d30b6afa39f1f5c0e5a1b6c22f8bea17066d38c6c0cf5d773e581cff4595d6fd",
   "provider": {
     "enabled": true,
     "provider": "FUT Flipper FC27 live console prices",
@@ -21,13 +21,69 @@
     "position": "CDM,CM,LM,LW,RB,RM,RW",
     "position_type": "any"
   },
-  "market_rows_scanned": 934,
+  "market_rows_scanned": 926,
   "scoring_note": "Supply is a price-distribution proxy from the cheapest qualifying market cards; no live auction-count claim is made.",
   "opportunities": [
     {
-      "card_id": "275774",
-      "name": "Alicia Redondo",
-      "rating": 72,
+      "card_id": "50609999",
+      "name": "Zeroli",
+      "rating": 66,
+      "position": "CM",
+      "league": null,
+      "club": null,
+      "nation": null,
+      "card_type": "Silver",
+      "price": 300,
+      "trend": null,
+      "evolution": "Pivot Shift",
+      "score": 52,
+      "action": "skip",
+      "net_sale": 285,
+      "potential_vs_median": 33.3,
+      "qualifying_cards_found": 383,
+      "price_rank": 161,
+      "price_tie_count": 1,
+      "price_percentile": 42.0,
+      "supply_proxy": 161,
+      "tags": [
+        "EVO",
+        "ELIGIBLE",
+        "LOW SAME-PRICE SUPPLY"
+      ],
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 300 coins: 1 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #161. 33.3% poniżej mediany."
+    },
+    {
+      "card_id": "50609999",
+      "name": "Zeroli",
+      "rating": 66,
+      "position": "CM",
+      "league": null,
+      "club": null,
+      "nation": null,
+      "card_type": "Silver",
+      "price": 300,
+      "trend": null,
+      "evolution": "Training Camp EVOs",
+      "score": 52,
+      "action": "skip",
+      "net_sale": 285,
+      "potential_vs_median": 33.3,
+      "qualifying_cards_found": 926,
+      "price_rank": 348,
+      "price_tie_count": 1,
+      "price_percentile": 37.6,
+      "supply_proxy": 348,
+      "tags": [
+        "EVO",
+        "ELIGIBLE",
+        "LOW SAME-PRICE SUPPLY"
+      ],
+      "why": "Training Camp EVOs: 926 kwalifikujących kart znalezionych. Cena 300 coins: 1 kart po tej samej cenie, 348 kart w +15%; pozycja cenowa #348. 33.3% poniżej mediany."
+    },
+    {
+      "card_id": "81326",
+      "name": "Markhiev",
+      "rating": 71,
       "position": "CDM",
       "league": null,
       "club": null,
@@ -40,17 +96,45 @@
       "action": "skip",
       "net_sale": 332,
       "potential_vs_median": 22.2,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 162,
       "price_tie_count": 1,
-      "price_percentile": 41.4,
-      "supply_proxy": 188,
+      "price_percentile": 42.3,
+      "supply_proxy": 185,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW SAME-PRICE SUPPLY"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 350 coins: 1 kart po tej samej cenie, 188 kart w +15%; pozycja cenowa #162. 22.2% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 350 coins: 1 kart po tej samej cenie, 185 kart w +15%; pozycja cenowa #162. 22.2% poniżej mediany."
+    },
+    {
+      "card_id": "81326",
+      "name": "Markhiev",
+      "rating": 71,
+      "position": "CDM",
+      "league": null,
+      "club": null,
+      "nation": null,
+      "card_type": "Silver",
+      "price": 350,
+      "trend": null,
+      "evolution": "Midfield Glow Up",
+      "score": 49,
+      "action": "skip",
+      "net_sale": 332,
+      "potential_vs_median": 12.5,
+      "qualifying_cards_found": 132,
+      "price_rank": 63,
+      "price_tie_count": 1,
+      "price_percentile": 47.7,
+      "supply_proxy": 75,
+      "tags": [
+        "EVO",
+        "ELIGIBLE",
+        "LOW SAME-PRICE SUPPLY"
+      ],
+      "why": "Midfield Glow Up: 132 kwalifikujących kart znalezionych. Cena 350 coins: 1 kart po tej samej cenie, 75 kart w +15%; pozycja cenowa #63. 12.5% poniżej mediany."
     },
     {
       "card_id": "50607219",
@@ -1888,17 +1972,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50414676",
@@ -1916,17 +2000,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50404282",
@@ -1944,17 +2028,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50564167",
@@ -1972,17 +2056,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50406900",
@@ -2000,17 +2084,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50600388",
@@ -2028,17 +2112,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "88975",
@@ -2056,17 +2140,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "271900",
@@ -2084,17 +2168,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "276270",
@@ -2112,17 +2196,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "262787",
@@ -2140,17 +2224,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "250907",
@@ -2168,17 +2252,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "236675",
@@ -2196,17 +2280,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "79756",
@@ -2224,17 +2308,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "240131",
@@ -2252,17 +2336,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "258845",
@@ -2280,17 +2364,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "241498",
@@ -2308,17 +2392,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "84325",
@@ -2336,17 +2420,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "274378",
@@ -2364,17 +2448,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "243135",
@@ -2392,17 +2476,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "75224",
@@ -2420,17 +2504,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "75653",
@@ -2448,17 +2532,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "74856",
@@ -2476,17 +2560,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "72739",
@@ -2504,17 +2588,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "273831",
@@ -2532,17 +2616,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "263956",
@@ -2560,17 +2644,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "252007",
@@ -2588,17 +2672,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "278333",
@@ -2616,17 +2700,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "276692",
@@ -2644,17 +2728,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "270897",
@@ -2672,17 +2756,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "234300",
@@ -2700,17 +2784,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "264543",
@@ -2728,17 +2812,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "262954",
@@ -2756,17 +2840,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "79909",
@@ -2784,17 +2868,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "77186",
@@ -2812,17 +2896,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "236449",
@@ -2840,17 +2924,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "274022",
@@ -2868,17 +2952,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "266497",
@@ -2896,17 +2980,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "252644",
@@ -2924,17 +3008,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "243358",
@@ -2952,17 +3036,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "233011",
@@ -2980,17 +3064,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "229694",
@@ -3008,17 +3092,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "235135",
@@ -3036,17 +3120,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "72170",
@@ -3064,45 +3148,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
-    },
-    {
-      "card_id": "278825",
-      "name": "Ikia Dimi",
-      "rating": 64,
-      "position": "LM",
-      "league": null,
-      "club": null,
-      "nation": null,
-      "card_type": "Bronze",
-      "price": 200,
-      "trend": null,
-      "evolution": "Flank Identity",
-      "score": 47,
-      "action": "skip",
-      "net_sale": 190,
-      "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
-      "price_rank": 1,
-      "price_tie_count": 60,
-      "price_percentile": 0.6,
-      "supply_proxy": 60,
-      "tags": [
-        "EVO",
-        "ELIGIBLE",
-        "LOW PRICE"
-      ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "276877",
@@ -3120,17 +3176,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "269630",
@@ -3148,17 +3204,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "261420",
@@ -3176,17 +3232,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "240813",
@@ -3204,17 +3260,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "243845",
@@ -3232,17 +3288,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "237169",
@@ -3260,17 +3316,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "212513",
@@ -3288,17 +3344,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "212493",
@@ -3316,17 +3372,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "73159",
@@ -3344,17 +3400,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "278779",
@@ -3372,17 +3428,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "268124",
@@ -3400,17 +3456,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "241960",
@@ -3428,17 +3484,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "221920",
@@ -3456,17 +3512,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "85095",
@@ -3484,17 +3540,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "80661",
@@ -3512,17 +3568,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "72293",
@@ -3540,17 +3596,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 177,
+      "qualifying_cards_found": 171,
       "price_rank": 1,
-      "price_tie_count": 60,
+      "price_tie_count": 59,
       "price_percentile": 0.6,
-      "supply_proxy": 60,
+      "supply_proxy": 59,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Flank Identity: 177 kwalifikujących kart znalezionych. Cena 200 coins: 60 kart po tej samej cenie, 60 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Flank Identity: 171 kwalifikujących kart znalezionych. Cena 200 coins: 59 kart po tej samej cenie, 59 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50601680",
@@ -3568,17 +3624,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50414462",
@@ -3596,45 +3652,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
-    },
-    {
-      "card_id": "50412307",
-      "name": "Sergio Martínez",
-      "rating": 64,
-      "position": "CDM",
-      "league": null,
-      "club": null,
-      "nation": null,
-      "card_type": "Bronze",
-      "price": 200,
-      "trend": null,
-      "evolution": "Pivot Shift",
-      "score": 47,
-      "action": "skip",
-      "net_sale": 190,
-      "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
-      "price_rank": 1,
-      "price_tie_count": 161,
-      "price_percentile": 0.3,
-      "supply_proxy": 161,
-      "tags": [
-        "EVO",
-        "ELIGIBLE",
-        "LOW PRICE"
-      ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50406716",
@@ -3652,17 +3680,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50600804",
@@ -3680,17 +3708,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50588389",
@@ -3708,17 +3736,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50409991",
@@ -3736,17 +3764,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50593104",
@@ -3764,17 +3792,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50596525",
@@ -3792,17 +3820,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50565452",
@@ -3820,17 +3848,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "50563228",
@@ -3848,17 +3876,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "271455",
@@ -3876,17 +3904,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "271645",
@@ -3904,17 +3932,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "274548",
@@ -3932,17 +3960,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "226633",
@@ -3960,17 +3988,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "77194",
@@ -3988,17 +4016,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "88653",
@@ -4016,17 +4044,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "271052",
@@ -4044,17 +4072,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "83379",
@@ -4072,17 +4100,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "73866",
@@ -4100,17 +4128,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "253712",
@@ -4128,17 +4156,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "219492",
@@ -4156,17 +4184,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     },
     {
       "card_id": "211001",
@@ -4184,45 +4212,17 @@
       "action": "skip",
       "net_sale": 190,
       "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
+      "qualifying_cards_found": 383,
       "price_rank": 1,
-      "price_tie_count": 161,
+      "price_tie_count": 160,
       "price_percentile": 0.3,
-      "supply_proxy": 161,
+      "supply_proxy": 160,
       "tags": [
         "EVO",
         "ELIGIBLE",
         "LOW PRICE"
       ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
-    },
-    {
-      "card_id": "243345",
-      "name": "Rieckmann",
-      "rating": 64,
-      "position": "CDM",
-      "league": null,
-      "club": null,
-      "nation": null,
-      "card_type": "Bronze",
-      "price": 200,
-      "trend": null,
-      "evolution": "Pivot Shift",
-      "score": 47,
-      "action": "skip",
-      "net_sale": 190,
-      "potential_vs_median": 55.6,
-      "qualifying_cards_found": 391,
-      "price_rank": 1,
-      "price_tie_count": 161,
-      "price_percentile": 0.3,
-      "supply_proxy": 161,
-      "tags": [
-        "EVO",
-        "ELIGIBLE",
-        "LOW PRICE"
-      ],
-      "why": "Pivot Shift: 391 kwalifikujących kart znalezionych. Cena 200 coins: 161 kart po tej samej cenie, 161 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
+      "why": "Pivot Shift: 383 kwalifikujących kart znalezionych. Cena 200 coins: 160 kart po tej samej cenie, 160 kart w +15%; pozycja cenowa #1. 55.6% poniżej mediany."
     }
   ]
 }
