@@ -36,7 +36,13 @@ class MarketProvider:
     def _payload(data):
         if not isinstance(data,dict): return {}
         inner=data.get("data")
-        return inner if isinstance(inner,dict) else data
+        if isinstance(inner,dict):
+            return inner
+        if isinstance(inner,list):
+            # Current FUT.GG FC27 response shape:
+            # {currentPage, data:[cards], next, total}
+            return {"players":inner,"next_page":data.get("next"),"platform":data.get("platform")}
+        return data
 
     @staticmethod
     def _label(v):
