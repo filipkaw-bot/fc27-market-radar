@@ -24,17 +24,16 @@ class MarketProvider:
         opts.add_argument("--disable-dev-shm-usage")
         opts.add_argument("--disable-gpu")
         opts.add_argument("--window-size=1440,1000")
-        driver=webdriver.Chrome(options=opts)
-        try:
-            driver.get("https://www.fut.gg/players/")
-            return driver.execute_async_script("""
-                const url=arguments[0], done=arguments[arguments.length-1];
-                fetch(url,{credentials:'include',headers:{'Accept':'application/json'}})
-                  .then(r=>r.text().then(t=>done({status:r.status,text:t})))
-                  .catch(e=>done({status:0,text:String(e)}));
-            """,url)
-        finally:
-            driver.quit()
+        if self._driver is None:
+            self._driver=webdriver.Chrome(options=opts)
+            self._driver.set_script_timeout(30)
+            self._driver.get("https://www.fut.gg/players/")
+        return self._driver.execute_async_script("""
+            const url=arguments[0], done=arguments[arguments.length-1];
+            fetch(url,{credentials:'include',headers:{'Accept':'application/json'}})
+              .then(r=>r.text().then(t=>done({status:r.status,text:t})))
+              .catch(e=>done({status:0,text:String(e)}));
+        """,url)
 
     def _get(self,page=None,ids=None,params=None):
         if ids:
