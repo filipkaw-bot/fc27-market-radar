@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install browser client
-        run: python -m pip install --disable-pip-version-check selenium beautifulsoup4
+        run: python -m pip install --disable-pip-version-check selenium beautifulsoup4 futbin-sdk
       - name: Update content radar
         run: python scripts/update.py
       - name: Update PC market radar from FUT.GG
@@ -28,6 +28,8 @@ jobs:
           FC27_PLATFORM: pc
           FUTGG_PAGES_PER_RUN: "20"
           FUTBIN_BROWSER: "0"
+          FUTBIN_SDK_MARKET: "1"
+          FUTBIN_PAGES_PER_RUN: "120"
         run: python scripts/engine.py
       - name: Validate radar output
         run: |
