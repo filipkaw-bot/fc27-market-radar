@@ -14,11 +14,14 @@ class MarketProvider:
         self.enabled=True
         self.last_error=None
 
-    def _get(self,page=None,ids=None):
+    def _get(self,page=None,ids=None,params=None):
         if ids:
             query="ids="+",".join(ids)+"&platform="+self.platform
         else:
-            query="page="+str(page)+"&platform="+self.platform
+            q={"page":str(page),"platform":self.platform}
+            if params:
+                q.update({k:str(v) for k,v in params.items() if v is not None})
+            query="&".join(k+"="+v for k,v in q.items())
         url=f"{BASE}/players/v2/{GAME}/?{query}"
         req=Request(url,headers={
             "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
@@ -87,8 +90,18 @@ class MarketProvider:
 
     def players(self,**filters):
         out=[]; seen=set(); pages_used=0; advertised_platform=None
-        for page in range(1,PAGES_PER_RUN+1):
-            data=self._get(page=page)
+        params={}
+        req=filters.get("requirements") or {}
+        if req.get("overall_max") is not None: params["max_rating"]=req["overall_max"]
+        if req.get("overall_min") is not None: params["min_rating"]=req["overall_min"]
+        positions=req.get("positions") or []
+        if len(positions)==1: params["position"]=positions[0]
+        params["sort_by"]="price"
+        params["sort_order"]="asc"
+        params["min_price"]=200
+        max_pages=min(PAGES_PER_RUN,5)
+        for page in range(1,max_pages+1):
+            data=self._get(page=page,params=params)
             pages_used=page
             payload=self._payload(data)
             advertised_platform=str(payload.get("platform") or data.get("platform") or "").lower()
@@ -121,7 +134,7 @@ class MarketProvider:
             raise RuntimeError(f"FUT.GG returned platform={advertised_platform}, expected {self.platform}")
         if not out:
             try:
-                probe=self._payload(self._get(page=1))
+                probe=self._payload(self._get(page=1,params=params))
                 probe_rows=probe.get("players") or []
                 print("FUT.GG DEBUG schema keys:",sorted(probe.keys()))
                 if probe_rows:
