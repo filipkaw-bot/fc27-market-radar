@@ -27,6 +27,7 @@ jobs:
         env:
           FC27_PLATFORM: pc
           FUTGG_PAGES_PER_RUN: "20"
+          FUTBIN_BROWSER: "0"
         run: python scripts/engine.py
       - name: Validate radar output
         run: |
