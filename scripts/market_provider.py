@@ -14,15 +14,21 @@ class MarketProvider:
         self.enabled=True
         self.last_error=None
         self._driver=None
+        self._html_driver=None
 
     def _browser_html(self,url):
         from selenium import webdriver
         from selenium.webdriver.chrome.options import Options
-        if self._driver is None:
-            opts=Options(); opts.add_argument("--headless=new"); opts.add_argument("--no-sandbox"); opts.add_argument("--disable-dev-shm-usage"); opts.add_argument("--disable-gpu"); opts.add_argument("--window-size=1440,1000")
-            self._driver=webdriver.Chrome(options=opts)
-        self._driver.get(url)
-        return self._driver.page_source
+        if self._html_driver is None:
+            opts=Options()
+            opts.add_argument("--headless=new"); opts.add_argument("--no-sandbox")
+            opts.add_argument("--disable-dev-shm-usage"); opts.add_argument("--disable-gpu")
+            opts.add_argument("--window-size=1440,1400")
+            self._html_driver=webdriver.Chrome(options=opts)
+            self._html_driver.set_page_load_timeout(30)
+        self._html_driver.get(url)
+        time.sleep(2.0)
+        return self._html_driver.page_source
 
     def _browser_get(self,url):
         from selenium import webdriver
