@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-06T13:39:34.541984+00:00",
-  "content_fingerprint": "cc1581934d8ba9936819564054b4957c5c64a49df71ec91dd9d9d1af5825c06c",
+  "updated": "2026-10-06T13:45:03.784357+00:00",
+  "content_fingerprint": "6a104aba76ad48fdca0150013ede5ba15641dc239a55076d0fdd0833459b2607",
   "provider": {
     "enabled": true,
     "provider": "FUT.GG",
@@ -8,12 +8,14 @@
     "market": "PC",
     "endpoint": "https://www.fut.gg/api/fut/players/v2/27/",
     "pages_per_run": 20,
-    "mode": "live PC catalogue"
+    "mode": "live PC catalogue",
+    "error": null
   },
   "content_triggers": 6,
-  "market_rows_scanned": 0,
+  "market_rows_scanned": 12,
   "platform": "PC",
   "source": "FUT.GG",
+  "status": "ok",
   "scoring_note": "PC market prices come from FUT.GG FC27. No PlayStation prices are mixed in.",
   "opportunities": []
 }
