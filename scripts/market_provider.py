@@ -15,6 +15,15 @@ class MarketProvider:
         self.last_error=None
         self._driver=None
 
+    def _browser_html(self,url):
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+        if self._driver is None:
+            opts=Options(); opts.add_argument("--headless=new"); opts.add_argument("--no-sandbox"); opts.add_argument("--disable-dev-shm-usage"); opts.add_argument("--disable-gpu"); opts.add_argument("--window-size=1440,1000")
+            self._driver=webdriver.Chrome(options=opts)
+        self._driver.get(url)
+        return self._driver.page_source
+
     def _browser_get(self,url):
         from selenium import webdriver
         from selenium.webdriver.chrome.options import Options
@@ -221,14 +230,14 @@ class MarketProvider:
                 "Referer":"https://www.futbin.com/27/players"
             })
             try:
-                with urlopen(req,timeout=30) as r: html=r.read().decode("utf-8","ignore")
+                if os.getenv("FUTBIN_BROWSER","1")=="1":
+                    html=self._browser_html(url)
+                else:
+                    with urlopen(req,timeout=30) as r: html=r.read().decode("utf-8","ignore")
             except Exception as e:
                 self.last_error=f"FUTBIN fallback failed: {e}"; break
             p=RowParser(); p.feed(html)
-            if not p.cells if False else False: pass
-            # HTMLParser above emits rows through its state; reconstruct by a simpler
-            # regex/table parser below when rows were not captured.
-            try:
+            # Parse the rendered FUTBIN table.            try:
                 from bs4 import BeautifulSoup
                 soup=BeautifulSoup(html,"html.parser")
                 rows=soup.select("tr.player-row")
