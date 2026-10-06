@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install browser client
-        run: python -m pip install --disable-pip-version-check selenium
+        run: python -m pip install --disable-pip-version-check selenium beautifulsoup4
       - name: Update content radar
         run: python scripts/update.py
       - name: Update PC market radar from FUT.GG
