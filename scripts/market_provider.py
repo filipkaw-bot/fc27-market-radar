@@ -13,6 +13,28 @@ class MarketProvider:
         if self.platform not in ("pc","ps"): self.platform="pc"
         self.enabled=True
         self.last_error=None
+        self._driver=None
+
+    def _browser_get(self,url):
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+        opts=Options()
+        opts.add_argument("--headless=new")
+        opts.add_argument("--no-sandbox")
+        opts.add_argument("--disable-dev-shm-usage")
+        opts.add_argument("--disable-gpu")
+        opts.add_argument("--window-size=1440,1000")
+        driver=webdriver.Chrome(options=opts)
+        try:
+            driver.get("https://www.fut.gg/players/")
+            return driver.execute_async_script("""
+                const url=arguments[0], done=arguments[arguments.length-1];
+                fetch(url,{credentials:'include',headers:{'Accept':'application/json'}})
+                  .then(r=>r.text().then(t=>done({status:r.status,text:t})))
+                  .catch(e=>done({status:0,text:String(e)}));
+            """,url)
+        finally:
+            driver.quit()
 
     def _get(self,page=None,ids=None,params=None):
         if ids:
@@ -29,9 +51,14 @@ class MarketProvider:
             "Referer":"https://www.fut.gg/players/","Origin":"https://www.fut.gg"
         })
         try:
+            if os.getenv("FUTGG_BROWSER","1")=="1":
+                browser=self._browser_get(url)
+                if browser.get("status")!=200:
+                    raise RuntimeError("browser HTTP "+str(browser.get("status")))
+                return json.loads(browser.get("text",""))
             with urlopen(req,timeout=30) as r:
                 return json.loads(r.read().decode("utf-8","ignore"))
-        except (HTTPError,URLError,TimeoutError,ValueError) as e:
+        except (HTTPError,URLError,TimeoutError,ValueError,RuntimeError) as e:
             self.last_error=f"request failed: {e}"
             raise RuntimeError(self.last_error) from e
 
