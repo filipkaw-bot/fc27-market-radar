@@ -150,6 +150,17 @@ class MarketProvider:
         return out
 
     def players(self,**filters):
+        # PC market: use the current FUTBIN FC27 web client for a real PC price
+        # snapshot. FUT.GG remains the content/catalogue source, but its bulk PC
+        # price endpoint is intermittently incomplete.
+        if self.platform=="pc" and os.getenv("FUTBIN_SDK_MARKET","1")=="1":
+            try:
+                snap=self._futbin_sdk_snapshot()
+                if snap:
+                    self.last_error="PC market sourced from FUTBIN FC27 live PC table"
+                    return {"players":snap}
+            except Exception as e:
+                self.last_error=f"FUTBIN SDK market failed: {e}"
         out=[]; seen=set(); pages_used=0; advertised_platform=None
         for page in range(1,PAGES_PER_RUN+1):
             data=self._get(page=page,params={})
@@ -379,6 +390,45 @@ class MarketProvider:
         if result:
             self.last_error="FUT.GG PC price index blocked; using FUTBIN PC fallback"
         return result
+
+    def _futbin_sdk_snapshot(self):
+        import asyncio
+        from futbin_sdk import FutbinClient
+        pages=max(1,int(os.getenv("FUTBIN_PAGES_PER_RUN","120")))
+
+        async def collect():
+            async with FutbinClient(year=27, timeout=20, cache_ttl=120) as client:
+                sem=asyncio.Semaphore(5)
+                async def one(page):
+                    async with sem:
+                        return await client.search_players(page=page, year=27)
+                return await asyncio.gather(*[one(p) for p in range(1,pages+1)], return_exceptions=True)
+
+        results=asyncio.run(collect())
+        out=[]; seen=set()
+        for page_rows in results:
+            if isinstance(page_rows,Exception) or not page_rows:
+                continue
+            for p in page_rows:
+                cid=str(getattr(p,"futbin_id",0) or "")
+                if not cid or cid in seen:
+                    continue
+                price=int(getattr(p,"price_pc",0) or 0)
+                if price<=0:
+                    continue
+                seen.add(cid)
+                out.append({
+                    "id":cid,
+                    "name":str(getattr(p,"name","Unknown") or "Unknown"),
+                    "rating":int(getattr(p,"rating",0) or 0),
+                    "position":str(getattr(p,"position","") or ""),
+                    "league":"","club":"","nation":"","version":"",
+                    "price_pc_coins":price,"price":price,
+                    "trend_pc":None,"platform":"pc","source_market":"FUTBIN PC"
+                })
+        if len(out)<50:
+            raise RuntimeError(f"only {len(out)} priced PC cards returned from FUTBIN")
+        return out
 
     def prices(self,card_id):
         raise RuntimeError("Radar uses FUT.GG catalogue prices.")
