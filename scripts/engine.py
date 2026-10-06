@@ -61,7 +61,7 @@ def score_pool(pool,evo):
             "potential_vs_median":round(discount*100,1),
             "qualifying_cards_found":len(prices),"price_rank":rank,"price_tie_count":ties,
             "price_percentile":round(rank/len(prices)*100,1),"supply_proxy":near,
-            "tags":["EVO","PC","FUT.GG"],"source":"FUT.GG PC",
+            "tags":["EVO","PC"],"source":("FUTBIN PC" if x.get("source_market")=="FUTBIN PC" else "FUT.GG PC"),
             "updated":datetime.now(timezone.utc).isoformat(),
             "why":f"{evo}: {len(prices)} kandydatów po OVR/pozycji w katalogu PC. Cena {x['price']} coins; {ties} po tej samej cenie, {near} w +15%; pozycja #{rank}. {round(discount*100,1)}% poniżej mediany."
         })
@@ -99,8 +99,8 @@ def run():
         "provider":provider.health(),
         "content_triggers":len(evos),
         "market_rows_scanned":len(all_ids),
-        "platform":"PC","source":"FUT.GG","status":"ok",
-        "scoring_note":"PC market prices come from FUT.GG FC27. No PlayStation prices are mixed in.",
+        "platform":"PC","source":("FUTBIN PC fallback" if any(x.get("source_market")=="FUTBIN PC" for x in snapshot) else "FUT.GG"),"status":"ok",
+        "scoring_note":("PC market prices from FUTBIN PC fallback because FUT.GG PC price feed was blocked. No PlayStation prices are mixed in." if any(x.get("source_market")=="FUTBIN PC" for x in snapshot) else "PC market prices come from FUT.GG FC27. No PlayStation prices are mixed in."),
         "opportunities":rows[:3]
     }
     os.makedirs("data",exist_ok=True)
