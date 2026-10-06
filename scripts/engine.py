@@ -79,12 +79,16 @@ def run():
     evos=[x for x in content if x.get("kind")=="Evolutions" and x.get("requirements")]
     fingerprint=hashlib.sha256(json.dumps(evos,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
-    snapshot=flatten(provider.players())
-    print("FUT.GG PC market rows:",len(snapshot))
     rows=[]
+    all_ids=set()
     for evo in evos:
-        pool=[dict(p) for p in snapshot if qualifies(p,evo["requirements"])]
+        req=evo["requirements"]
+        snapshot=flatten(provider.players(requirements=req))
+        all_ids.update(p["id"] for p in snapshot)
+        pool=[dict(p) for p in snapshot if qualifies(p,req)]
+        print("FUT.GG PC candidates",evo["name"],len(pool))
         rows.extend(score_pool(pool,evo["name"]))
+    print("FUT.GG PC market rows:",len(all_ids))
 
     dedup={(x["card_id"],x["evolution"]):x for x in rows}
     rows=list(dedup.values())
@@ -95,7 +99,7 @@ def run():
         "content_fingerprint":fingerprint,
         "provider":provider.health(),
         "content_triggers":len(evos),
-        "market_rows_scanned":len(snapshot),
+        "market_rows_scanned":len(all_ids),
         "platform":"PC","source":"FUT.GG","status":"ok",
         "scoring_note":"PC market prices come from FUT.GG FC27. No PlayStation prices are mixed in.",
         "opportunities":rows[:3]
