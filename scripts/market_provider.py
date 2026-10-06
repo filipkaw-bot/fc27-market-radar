@@ -178,9 +178,89 @@ class MarketProvider:
 
         if advertised_platform and advertised_platform!=self.platform:
             raise RuntimeError(f"FUT.GG returned platform={advertised_platform}, expected {self.platform}")
+        if len(out)<50 and self.platform=="pc":
+            fallback=self._futbin_fallback()
+            if fallback:
+                return {"players":fallback}
         if not out:
-            raise RuntimeError(f"FUT.GG returned zero priced {self.platform.upper()} cards after {pages_used} page(s)")
+            raise RuntimeError(f"FUT.GG/FUTBIN returned zero priced {self.platform.upper()} cards after {pages_used} page(s)")
         return {"players":out}
+
+    def _futbin_fallback(self):
+        # Last-resort PC feed. FUTBIN publishes FC27 PC prices directly in its
+        # year-scoped player table. We use this only when FUT.GG's PC price index
+        # is blocked/empty, and label the resulting cards explicitly as FUTBIN PC.
+        from html.parser import HTMLParser
+        import re
+
+        class RowParser(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.in_row=False; self.in_td=False; self.href=""
+                self.cells=[]; self.cur=""
+            def handle_starttag(self,tag,attrs):
+                a=dict(attrs)
+                if tag=="tr" and "player-row" in a.get("class",""):
+                    self.in_row=True; self.cells=[]; self.href=""
+                elif self.in_row and tag=="td": self.in_td=True; self.cur=""
+                elif self.in_row and tag=="a" and "/27/player/" in a.get("href",""):
+                    self.href=a.get("href","")
+            def handle_data(self,data):
+                if self.in_row and self.in_td: self.cur+=data
+            def handle_endtag(self,tag):
+                if self.in_row and tag=="td":
+                    self.cells.append(" ".join(self.cur.split())); self.in_td=False
+                elif self.in_row and tag=="tr":
+                    self.in_row=False
+
+        result=[]
+        for page in range(1,min(PAGES_PER_RUN,20)+1):
+            url=f"https://www.futbin.com/27/players?page={page}"
+            req=Request(url,headers={
+                "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
+                "Accept":"text/html,application/xhtml+xml","Accept-Language":"en-US,en;q=0.9",
+                "Referer":"https://www.futbin.com/27/players"
+            })
+            try:
+                with urlopen(req,timeout=30) as r: html=r.read().decode("utf-8","ignore")
+            except Exception as e:
+                self.last_error=f"FUTBIN fallback failed: {e}"; break
+            p=RowParser(); p.feed(html)
+            if not p.cells if False else False: pass
+            # HTMLParser above emits rows through its state; reconstruct by a simpler
+            # regex/table parser below when rows were not captured.
+            try:
+                from bs4 import BeautifulSoup
+                soup=BeautifulSoup(html,"html.parser")
+                rows=soup.select("tr.player-row")
+            except Exception:
+                rows=[]
+            if not rows: break
+            for row in rows:
+                link=row.select_one("a[href*='/27/player/']")
+                if not link: continue
+                href=str(link.get("href","")); m=re.search(r"/27/player/(\d+)",href)
+                if not m: continue
+                cells=[c.get_text(" ",strip=True) for c in row.find_all("td")]
+                if len(cells)<6: continue
+                def num(s):
+                    s=s.upper().replace(",","").strip()
+                    try:
+                        if s.endswith("K"): return int(float(s[:-1])*1000)
+                        if s.endswith("M"): return int(float(s[:-1])*1000000)
+                        return int(float(s))
+                    except: return 0
+                price=num(cells[5])
+                if price<=0: continue
+                result.append({
+                    "id":m.group(1),"name":link.get_text(" ",strip=True) or "Unknown",
+                    "rating":num(cells[1]),"position":cells[3].split()[0] if len(cells)>3 else "",
+                    "price":price,"price_pc_coins":price,
+                    "league":"","club":"","nation":"","version":"",
+                    "platform":"pc","source_market":"FUTBIN PC","trend_pc":None
+                })
+        if result:
+            self.last_error="FUT.GG PC price index blocked; using FUTBIN PC fallback"
+        return result
 
     def prices(self,card_id):
         raise RuntimeError("Radar uses FUT.GG catalogue prices.")
