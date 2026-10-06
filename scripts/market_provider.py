@@ -213,32 +213,43 @@ class MarketProvider:
         return {"players":out}
 
     def _futbin_direct_prices(self, ids):
+        # FC27 FUTBIN price data is exposed by the year-scoped playerPrices
+        # endpoint. The FUTBIN card/resource id used by the FC27 catalogue is
+        # passed as the player parameter; the response contains a PC price box.
         from concurrent.futures import ThreadPoolExecutor, as_completed
-        import re
         def one(cid):
-            url=f"https://www.futbin.org/futbin/api/{GAME}/fetchPriceInformation?playerresource={cid}&platform=PC"
+            url=f"https://www.futbin.com/{GAME}/playerPrices?player={cid}"
             req=Request(url,headers={
                 "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
-                "Accept":"application/json,text/plain,*/*","Referer":"https://www.futbin.com/"
+                "Accept":"application/json,text/plain,*/*","Referer":f"https://www.futbin.com/{GAME}/players"
             })
             try:
-                with urlopen(req,timeout=12) as r:
-                    data=json.loads(r.read().decode("utf-8","ignore"))
-                raw=data.get("LCPrice")
-                if raw is None: raw=data.get("price")
-                try: price=int(float(raw))
+                if os.getenv("FUTBIN_BROWSER","1")=="1":
+                    browser=self._browser_get(url)
+                    raw=browser.get("text","") if browser.get("status")==200 else ""
+                else:
+                    with urlopen(req,timeout=15) as r:
+                        raw=r.read().decode("utf-8","ignore")
+                data=json.loads(raw)
+                # Typical shape: {player_id: {prices: {pc: {LCPrice: ...}}}}
+                node=data.get(str(cid)) if isinstance(data,dict) else None
+                if node is None and isinstance(data,dict) and len(data)==1:
+                    node=next(iter(data.values()))
+                prices=node.get("prices",{}) if isinstance(node,dict) else {}
+                pc=prices.get("pc") or prices.get("PC") or {}
+                raw_price=pc.get("LCPrice") if isinstance(pc,dict) else pc
+                try: price=int(float(raw_price))
                 except (TypeError,ValueError): price=0
                 return str(cid),price
             except Exception:
                 return str(cid),0
         out={}
         with ThreadPoolExecutor(max_workers=12) as ex:
-            futures=[ex.submit(one,cid) for cid in ids]
-            for fut in as_completed(futures):
+            for fut in as_completed([ex.submit(one,cid) for cid in ids]):
                 cid,price=fut.result()
                 if price>0: out[cid]=price
         if out:
-            self.last_error="FUT.GG PC bulk prices unavailable; using FUTBIN PC direct price endpoint"
+            self.last_error="FUT.GG PC bulk prices unavailable; using FUTBIN PC playerPrices endpoint"
         return out
 
     def _futbin_fallback(self):
