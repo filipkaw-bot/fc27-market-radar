@@ -114,6 +114,18 @@ class MarketProvider:
         if advertised_platform and advertised_platform!=self.platform:
             raise RuntimeError(f"FUT.GG returned platform={advertised_platform}, expected {self.platform}")
         if not out:
+            try:
+                probe=self._payload(self._get(page=1))
+                probe_rows=probe.get("players") or []
+                print("FUT.GG DEBUG schema keys:",sorted(probe.keys()))
+                if probe_rows:
+                    first=probe_rows[0]
+                    print("FUT.GG DEBUG first card keys:",sorted(first.keys()))
+                    print("FUT.GG DEBUG first card price:",repr(first.get("price")))
+                    print("FUT.GG DEBUG first card id:",repr(first.get("card_id") or first.get("eaId") or first.get("id")))
+                    print("FUT.GG DEBUG platform:",repr(probe.get("platform")))
+            except Exception as e:
+                print("FUT.GG DEBUG probe failed:",repr(e))
             raise RuntimeError(f"FUT.GG returned zero priced {self.platform.upper()} cards after {pages_used} page(s)")
         return {"players":out}
 
