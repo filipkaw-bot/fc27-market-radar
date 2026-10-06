@@ -26,6 +26,16 @@ jobs:
           FC27_PLATFORM: pc
           FUTGG_PAGES_PER_RUN: "20"
         run: python scripts/engine.py
+      - name: Validate radar output
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open("data/market.json",encoding="utf-8"))
+          rows=d.get("market_rows_scanned",0)
+          if d.get("status")!="ok" or rows<=0:
+              raise SystemExit(f"Radar validation failed: status={d.get('status')} market_rows_scanned={rows}")
+          print(f"Validated FUT.GG PC feed: {rows} priced cards; TOP3={len(d.get('opportunities',[]))}")
+          PY
       - name: Telegram alerts
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
