@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-06T14:02:27.783912+00:00",
-  "content_fingerprint": "0810c024e5230511954d8342bb4ca723d49cf5f0281bc8bce96dea8b6aadc85c",
+  "updated": "2026-10-06T14:16:13.532077+00:00",
+  "content_fingerprint": "9d45f58cad5a611cf3b6aa7cedf947e3e53e4fb571614d9d26eab90f148c402c",
   "provider": {
     "enabled": true,
     "provider": "FUT.GG",
@@ -9,7 +9,7 @@
     "endpoint": "https://www.fut.gg/api/fut/players/v2/27/",
     "pages_per_run": 20,
     "mode": "live PC catalogue",
-    "error": "FUTBIN fallback failed: HTTP Error 403: Forbidden"
+    "error": "FUTBIN returned no player rows on page 1 (HTML 28603 bytes)"
   },
   "content_triggers": 6,
   "market_rows_scanned": 12,
