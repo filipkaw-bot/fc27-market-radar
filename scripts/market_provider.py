@@ -181,10 +181,21 @@ class MarketProvider:
                         try: val=int(float(val))
                         except (TypeError,ValueError): continue
                         if cid and val>0: price_by_id[cid]=val
+            # FUT.GG's catalogue is usable for metadata, but its bulk PC price
+            # endpoint can be Cloudflare-blocked. For missing PC prices, use FUTBIN's
+            # public single-player PC price endpoint. This avoids scraping the HTML
+            # table entirely and keeps the source explicitly PC-only.
+            if self.platform=="pc":
+                missing=[p["id"] for p in normalized if p["id"] and not price_by_id.get(p["id"]) and not p["price"]]
+                if missing:
+                    price_by_id.update(self._futbin_direct_prices(missing))
             for p in normalized:
                 p["price"]=price_by_id.get(p["id"],p["price"])
                 p["price_pc_coins"]=p["price"]
+                if price_by_id.get(p["id"]) and not self._get_prices:
+                    pass
                 if p["id"] in seen or p["price"]<=0: continue
+                p["source_market"]="FUTBIN PC" if p["id"] in price_by_id else "FUT.GG PC"
                 seen.add(p["id"]); out.append(p)
 
             next_page=payload.get("next_page")
@@ -200,6 +211,35 @@ class MarketProvider:
         if not out:
             raise RuntimeError(f"FUT.GG/FUTBIN returned zero priced {self.platform.upper()} cards after {pages_used} page(s)")
         return {"players":out}
+
+    def _futbin_direct_prices(self, ids):
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+        import re
+        def one(cid):
+            url=f"https://www.futbin.org/futbin/api/{GAME}/fetchPriceInformation?playerresource={cid}&platform=PC"
+            req=Request(url,headers={
+                "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
+                "Accept":"application/json,text/plain,*/*","Referer":"https://www.futbin.com/"
+            })
+            try:
+                with urlopen(req,timeout=12) as r:
+                    data=json.loads(r.read().decode("utf-8","ignore"))
+                raw=data.get("LCPrice")
+                if raw is None: raw=data.get("price")
+                try: price=int(float(raw))
+                except (TypeError,ValueError): price=0
+                return str(cid),price
+            except Exception:
+                return str(cid),0
+        out={}
+        with ThreadPoolExecutor(max_workers=12) as ex:
+            futures=[ex.submit(one,cid) for cid in ids]
+            for fut in as_completed(futures):
+                cid,price=fut.result()
+                if price>0: out[cid]=price
+        if out:
+            self.last_error="FUT.GG PC bulk prices unavailable; using FUTBIN PC direct price endpoint"
+        return out
 
     def _futbin_fallback(self):
         # Last-resort PC feed. FUTBIN publishes FC27 PC prices directly in its
