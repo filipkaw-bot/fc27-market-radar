@@ -189,9 +189,10 @@ class MarketProvider:
                         price_by_id={}
                         for item in raw:
                             if not isinstance(item,dict): continue
-                            cid=str(item.get("id") or item.get("eaId") or item.get("card_id") or "")
+                            cid=str(item.get("id") or item.get("eaId") or item.get("card_id") or item.get("item_id") or "")
                             val=item.get("price")
-                            if isinstance(val,dict): val=val.get("pc") or val.get("PC") or val.get("current")
+                            if isinstance(val,dict): val=val.get("pc") or val.get("PC") or val.get("current") or val.get("value")
+                            if val is None: val=item.get("pc") or item.get("pc_price") or item.get("price_pc")
                             try: val=int(float(val))
                             except (TypeError,ValueError): continue
                             if cid and val>0: price_by_id[cid]=val
