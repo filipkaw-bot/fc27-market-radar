@@ -79,16 +79,15 @@ def run():
     evos=[x for x in content if x.get("kind")=="Evolutions" and x.get("requirements")]
     fingerprint=hashlib.sha256(json.dumps(evos,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
+    snapshot=flatten(provider.players())
+    all_ids={p["id"] for p in snapshot}
+    print("FUT.GG PC market rows:",len(snapshot))
     rows=[]
-    all_ids=set()
     for evo in evos:
         req=evo["requirements"]
-        snapshot=flatten(provider.players(requirements=req))
-        all_ids.update(p["id"] for p in snapshot)
         pool=[dict(p) for p in snapshot if qualifies(p,req)]
         print("FUT.GG PC candidates",evo["name"],len(pool))
         rows.extend(score_pool(pool,evo["name"]))
-    print("FUT.GG PC market rows:",len(all_ids))
 
     dedup={(x["card_id"],x["evolution"]):x for x in rows}
     rows=list(dedup.values())
