@@ -70,6 +70,11 @@ class MarketProvider:
             "Referer":"https://www.fut.gg/players/","Origin":"https://www.fut.gg"
         })
         try:
+            if os.getenv("FUTGG_BROWSER","1")=="1":
+                browser=self._browser_get(url)
+                if browser.get("status")!=200:
+                    raise RuntimeError("browser HTTP "+str(browser.get("status")))
+                return json.loads(browser.get("text",""))
             with urlopen(req,timeout=30) as r:
                 return json.loads(r.read().decode("utf-8","ignore"))
         except Exception as e:
